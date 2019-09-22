@@ -2,7 +2,7 @@
 
 namespace JabberPoint
 {
-    public class Class1
+    public class Slideshow
     {
     }
 }

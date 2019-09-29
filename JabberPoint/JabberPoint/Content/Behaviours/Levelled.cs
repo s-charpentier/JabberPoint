@@ -4,7 +4,7 @@ using System.Text;
 
 namespace JabberPoint.Domain.Content.Behaviours
 {
-    public class Levelled
+    public class Levelled : IContentBehaviour
     {
     }
 }

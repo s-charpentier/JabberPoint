@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace JabberPoint.Domain.Content
+namespace JabberPoint.Domain.Content.Behaviours
 {
-    public class Table
+    public interface Text : IListable
     {
     }
 }

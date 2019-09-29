@@ -7,6 +7,6 @@ namespace JabberPoint.Domain.Content
 {
     public interface IContent
     {
-        IContentProperty MyBehaviour { get;}
+        List<IContentBehaviour> MyBehaviours { get;}
     }
 }

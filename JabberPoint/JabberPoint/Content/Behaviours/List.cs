@@ -1,10 +1,11 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace JabberPoint.Domain.Content.Behaviours
 {
-    public class Referenced
+    public class List : IContentBehaviour
     {
+
     }
 }

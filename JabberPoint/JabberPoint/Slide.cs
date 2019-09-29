@@ -4,7 +4,7 @@ using System.Text;
 
 namespace JabberPoint.Domain
 {
-    class Slide
+    public class Slide
     {
     }
 }

@@ -4,7 +4,8 @@ using System.Text;
 
 namespace JabberPoint.Domain
 {
-    class Slideshow
+    public sealed class Slideshow
     {
+        public List<Slide> Slides { get; private set; }
     }
 }

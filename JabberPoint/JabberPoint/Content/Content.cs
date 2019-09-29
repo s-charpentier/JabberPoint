@@ -22,6 +22,5 @@ namespace JabberPoint.Domain.Content
             Behaviours = behaviours.ToList();
             Bounds = bounds;
         }
-        public Content (params IContentBehaviour[] behaviours) : this(behaviours) { }
     }
 }

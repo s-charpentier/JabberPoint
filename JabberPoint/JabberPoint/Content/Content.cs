@@ -10,10 +10,10 @@ namespace JabberPoint.Domain.Content
     {
         public List<IContentBehaviour> MyBehaviours { get; private set; }
 
-        public Content (params IContentBehaviour[] behaviours) : this(behaviours) { }
-        public Content (IEnumerable<IContentBehaviour> behaviours) 
+        public Content(IEnumerable<IContentBehaviour> behaviours)
         {
             MyBehaviours = behaviours.ToList();
         }
+        public Content (params IContentBehaviour[] behaviours) : this(behaviours) { }
     }
 }

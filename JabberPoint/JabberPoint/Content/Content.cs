@@ -22,5 +22,14 @@ namespace JabberPoint.Domain.Content
             Behaviours = behaviours.ToList();
             Bounds = bounds;
         }
+
+        /**
+         * function GetBehaviour
+         * Template function that returns the behaviour of a specific behaviour type
+         * \return the first behaviour in the behaviourlist that matches the given behaviour
+         */
+        public T GetBehaviour<T>() where T : IContentBehaviour {
+            return this.Behaviours.OfType<T>().First();
+        }
     }
 }

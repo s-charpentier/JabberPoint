@@ -6,7 +6,7 @@ namespace JabberPoint.Domain.Content.Behaviours
 {
     public class LevelledBehaviour : IContentBehaviour
     {
-        public IContent Parent { get; private set; }
-        public int level { get; private set; }
+        public IContent Parent { get; set; }
+        public int Level { get; set; }
     }
 }

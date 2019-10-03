@@ -13,14 +13,21 @@ namespace JabberPoint.Domain.Content
         public List<IContentBehaviour> Behaviours { get; private set; }
         public Bounds Bounds { get; private set; }
 
-        public Content(int x,int y, int height, int width, params IContentBehaviour[] behaviours) : this(new Bounds(x, y, height, width), behaviours) { }
-        public Content (Bounds bounds,params IContentBehaviour[] behaviours ) : this(bounds,behaviours.AsEnumerable()) { }
-
-        public Content(int x, int y, int height, int width, IEnumerable<IContentBehaviour> behaviours) : this(new Bounds(x, y, height, width), behaviours) { }
-        public Content (Bounds bounds,IEnumerable<IContentBehaviour> behaviours) 
+        public Content(int x, int y, int height, int width) : this(new Bounds(x, y, height, width)) { }
+        public Content(Bounds bounds)
         {
-            Behaviours = behaviours.ToList();
             Bounds = bounds;
+        }
+
+        /**
+         * function AddBehaviour
+         * Template function that adds a behaviour of a given type to the Content object
+         * \return the created behaviour
+         */
+        public T AddBehaviour<T>() where T : IContentBehaviour, new() {
+            T behaviour = new T { Parent = this };
+            this.Behaviours.Add(behaviour);
+            return behaviour;
         }
 
         /**

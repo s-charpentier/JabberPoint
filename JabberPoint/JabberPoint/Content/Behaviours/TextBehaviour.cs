@@ -6,9 +6,7 @@ namespace JabberPoint.Domain.Content.Behaviours
 {
     public class TextBehaviour : IListableBehaviour
     {
-        public IContent Parent { get; private set; }
-
-        public string Text { get; private set; }
-
+        public IContent Parent { get; set; }
+        public string Text { get; set; }
     }
 }

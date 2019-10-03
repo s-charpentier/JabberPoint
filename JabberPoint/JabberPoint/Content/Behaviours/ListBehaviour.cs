@@ -6,10 +6,10 @@ namespace JabberPoint.Domain.Content.Behaviours
 {
     public class ListBehaviour : IContentBehaviour
     {
-        public IContent Parent { get; private set; }
+        public IContent Parent { get; set; }
 
-        public char Separator { get; private set; }
-        public List<IListableBehaviour> ContentList { get; private set; }
+        public char Separator { get; set; }
+        public List<IListableBehaviour> ContentList { get; set; }
 
     }
 }

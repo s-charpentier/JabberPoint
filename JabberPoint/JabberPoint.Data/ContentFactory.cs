@@ -14,12 +14,12 @@ namespace JabberPoint.Data
 
     class TextContentFactory : ContentFactory
     {
-        private string text;
-        private int level;
+        private string _text;
+        private int _level;
         public TextContentFactory(string text, int level)
         {
-            this.text = text;
-            this.level = level;
+            this._text = text;
+            this._level = level;
         }
         public override IContent GetContent()
         {
@@ -27,8 +27,8 @@ namespace JabberPoint.Data
             TextBehaviour tb = content.AddBehaviour<TextBehaviour>();
             LevelledBehaviour lb = content.AddBehaviour<LevelledBehaviour>();
 
-            tb.Text = this.text;
-            lb.Level = this.level;
+            tb.Text = this._text;
+            lb.Level = this._level;
 
             return content;
         }
@@ -36,17 +36,17 @@ namespace JabberPoint.Data
 
     class ImageContentFactory : ContentFactory
     {
-        private string reference;
+        private string _reference;
         public ImageContentFactory(string reference)
         {
-            this.reference = reference;
+            this._reference = reference;
         }
         public override IContent GetContent()
         {
             Content content = new Content(0, 0, 0, 0);
             MediaBehaviour mb = content.AddBehaviour<MediaBehaviour>();
 
-            mb.Reference = this.reference;
+            mb.Reference = this._reference;
 
             return content;
         }
@@ -54,13 +54,13 @@ namespace JabberPoint.Data
 
     class ListContentFactory : ContentFactory
     {
-        private char separator;
-        List<IListableBehaviour> listables;
+        private char _separator;
+        List<IListableBehaviour> _listables;
         public ListContentFactory(char separator, params IListableBehaviour[] listables) : this(separator, listables.AsEnumerable()) { }
         public ListContentFactory(char separator, IEnumerable<IListableBehaviour> listables)
         {
-            this.separator = separator;
-            this.listables = listables.ToList();
+            this._separator = separator;
+            this._listables = listables.ToList();
 
         }
         public override IContent GetContent()
@@ -68,8 +68,8 @@ namespace JabberPoint.Data
             Content content = new Content(0, 0, 0, 0);
             ListBehaviour lb = content.AddBehaviour<ListBehaviour>();
 
-            lb.Separator = this.separator;
-            lb.ContentList = this.listables;
+            lb.Separator = this._separator;
+            lb.ContentList = this._listables;
 
             return content;
         }

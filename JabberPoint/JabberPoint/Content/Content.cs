@@ -11,13 +11,6 @@ namespace JabberPoint.Domain.Content
     public class Content : IContent
     {
         public List<IContentBehaviour> Behaviours { get; private set; }
-        public Bounds Bounds { get; private set; }
-
-        public Content(int x, int y, int height, int width) : this(new Bounds(x, y, height, width)) { }
-        public Content(Bounds bounds)
-        {
-            Bounds = bounds;
-        }
 
         /**
          * function AddBehaviour

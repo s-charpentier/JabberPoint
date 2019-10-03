@@ -6,13 +6,32 @@
         xmlns:local="clr-namespace:JabberPoint.View"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <DockPanel>
+    <DockPanel Margin="0,0,0,0">
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_File">
                 <MenuItem Header="_Open" />
+                <MenuItem Header="_New" />
+                <MenuItem Header="_Save" />
+                <Separator />
                 <MenuItem Header="_Exit" />
             </MenuItem>
+            <MenuItem Header="_View">
+                <MenuItem Header="_Next" />
+                <MenuItem Header="_Prev" />
+                <MenuItem Header="_Go to" />
+                <Separator />
+                <MenuItem Header="_Themes">
+                    <MenuItem Header="_Theme 1" />
+                    <MenuItem Header="_Theme 2" />
+                    <MenuItem Header="_Theme 3" />
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Help">
+                <MenuItem Header="_About" />
+            </MenuItem>
         </Menu>
-        <TextBox AcceptsReturn="True" />
+        <StackPanel x:Name="SlideshowArea" Orientation="Vertical" DockPanel.Dock="Bottom">
+            <Label x:Name="label" Content="Label" Canvas.Left="145" Canvas.Top="138"/>
+        </StackPanel>
     </DockPanel>
 </Window>

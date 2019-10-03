@@ -23,7 +23,7 @@ namespace JabberPoint.Data
         }
         public override IContent GetContent()
         {
-            Content content = new Content(0, 0, 0, 0);
+            Content content = new Content();
             TextBehaviour tb = content.AddBehaviour<TextBehaviour>();
             LevelledBehaviour lb = content.AddBehaviour<LevelledBehaviour>();
 
@@ -43,7 +43,7 @@ namespace JabberPoint.Data
         }
         public override IContent GetContent()
         {
-            Content content = new Content(0, 0, 0, 0);
+            Content content = new Content();
             MediaBehaviour mb = content.AddBehaviour<MediaBehaviour>();
 
             mb.Reference = this._reference;
@@ -65,7 +65,7 @@ namespace JabberPoint.Data
         }
         public override IContent GetContent()
         {
-            Content content = new Content(0, 0, 0, 0);
+            Content content = new Content();
             ListBehaviour lb = content.AddBehaviour<ListBehaviour>();
 
             lb.Separator = this._separator;

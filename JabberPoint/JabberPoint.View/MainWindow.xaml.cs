@@ -23,6 +23,31 @@ namespace JabberPoint.View
         public MainWindow()
         {
             InitializeComponent();
+            CreateLabel();
+            CreateLabel();
+            CreateLabel();
+        }
+
+        private void CreateLabel()
+
+        {
+
+            Label dynamicLabel = new Label();
+
+            dynamicLabel.Name = "McLabel";
+
+            dynamicLabel.Content = "Hello World";
+
+            dynamicLabel.Width = 240;
+
+            dynamicLabel.Height = 30;
+
+            dynamicLabel.Foreground = new SolidColorBrush(Colors.White);
+
+            dynamicLabel.Background = new SolidColorBrush(Colors.Black);
+
+            SlideshowArea.Children.Add(dynamicLabel);
+
         }
     }
 }

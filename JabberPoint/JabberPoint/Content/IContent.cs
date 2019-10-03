@@ -9,8 +9,6 @@ namespace JabberPoint.Domain.Content
     public interface IContent
     {
         List<IContentBehaviour> Behaviours { get;}
-        Bounds Bounds { get; }
-
         T GetBehaviour<T>() where T : IContentBehaviour;
     }
 }

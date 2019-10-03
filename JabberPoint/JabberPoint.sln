@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.329
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JabberPoint.Domain", "JabberPoint\JabberPoint.Domain.csproj", "{BFC1B269-8C93-4FBC-A46D-1C0BCD687847}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JabberPoint.Data", "JabberPoint.Data\JabberPoint.Data.csproj", "{431D1488-E4B6-492D-90B4-789D384436DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JabberPoint.Data", "JabberPoint.Data\JabberPoint.Data.csproj", "{431D1488-E4B6-492D-90B4-789D384436DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JabberPoint.Business", "JabberPoint.Business\JabberPoint.Business.csproj", "{839EA521-E7C8-41D9-A2D4-D80CC0AAE152}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JabberPoint.Business", "JabberPoint.Business\JabberPoint.Business.csproj", "{839EA521-E7C8-41D9-A2D4-D80CC0AAE152}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JabberPoint.View", "JabberPoint.View\JabberPoint.View.csproj", "{AE88BB91-C133-42FC-9CA3-7ADE2D4A8D71}"
 EndProject

@@ -30,8 +30,6 @@
                 <MenuItem Header="_About" />
             </MenuItem>
         </Menu>
-        <StackPanel x:Name="SlideshowArea" Orientation="Vertical" DockPanel.Dock="Bottom">
-            <Label x:Name="label" Content="Label" Canvas.Left="145" Canvas.Top="138"/>
-        </StackPanel>
+        <StackPanel x:Name="SlideshowArea" Orientation="Vertical" DockPanel.Dock="Bottom"/>
     </DockPanel>
 </Window>

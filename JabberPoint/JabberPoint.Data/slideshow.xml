@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<slideshow>
+    <theme name="theme1" />
+    <metainfos>
+        <metainfo key="title" value="JabberPoint" />
+        <metainfo key="subtitle" value="Het Java Presentatie Tool" />
+    </metainfos>
+	<slides>
+        <slide>
+            <metainfos>
+                <metainfo key="pagenumber" value="1" />
+                <metainfo key="showPagenumber" value="true" />
+            </metainfos>
+            <contents>
+                <content type="text">
+                    <text value="JabberPoint" />
+                    <level value="0" />
+                </content>
+                <content type="text">
+                    <text value="Het Java Presentatie Tool" />
+                    <level value="1" />
+                </content>
+                <content type="text">
+                    <text value="Copyright (c) 1996-2000: Ian Darwin" />
+                    <level value="2" />
+                </content>
+                <content type="text">
+                    <text value="Copyright (c) 2000-now: Gert Florijn en Sylvia Stuurman" />
+                    <level value="2" />
+                </content>
+                <content type="text">
+                    <text value="JabberPoint aanroepen zonder bestandsnaam laat deze presentatie zien" />
+                    <level value="4" />
+                </content>
+                <content type="text">
+                    <text value="Navigeren:" />
+                    <level value="1" />
+                </content>
+                <content type="text">
+                    <text value="Volgende Slide: PgDn of Enter" />
+                    <level value="3" />
+                </content>
+                <content type="text">
+                    <text value="Vorige Slide: PgUp of up-arrow" />
+                    <level value="3" />
+                </content>
+                <content type="text">
+                    <text value="Stoppen: q of Q" />
+                    <level value="3" />
+                </content>
+            </contents>
+        </slide>
+        <slide>
+            <metainfos>
+                <metainfo key="pagenumber" value="2" />
+                <metainfo key="showPagenumber" value="true" />
+            </metainfos>
+            <contents>
+                <content type="text">
+                    <text value="Demonstratie van Levels en Stijlen" />
+                    <level value="0" />
+                </content>
+                <content type="text">
+                    <text value="Level 1" />
+                    <level value="1" />
+                </content>
+                <content type="text">
+                    <text value="Level 2" />
+                    <level value="2" />
+                </content>
+                <content type="text">
+                    <text value="Nogmaals Level 1" />
+                    <level value="1" />
+                </content>
+                <content type="text">
+                    <text value="Level 1 heeft stijl nummer 1" />
+                    <level value="1" />
+                </content>
+                <content type="text">
+                    <text value="Level 2 heeft stijl nummer 2" />
+                    <level value="2" />
+                </content>
+                <content type="text">
+                    <text value="Zo ziet level 3 er uit" />
+                    <level value="3" />
+                </content>
+                <content type="text">
+                    <text value="En dit is level 4" />
+                    <level value="4" />
+                </content>
+            </contents>
+        </slide>
+        <slide>
+            <metainfos>
+                <metainfo key="pagenumber" value="2" />
+                <metainfo key="showPagenumber" value="true" />
+            </metainfos>
+            <contents>
+                <content type="text">
+                    <text value="De derde slide" />
+                    <level value="0" />
+                </content>
+                <content type="text">
+                    <text value="Om een nieuwe presentatie te openen," />
+                    <level value="1" />
+                </content>
+                <content type="text">
+                    <text value="Gebruik file->Open uit het menu." />
+                    <level value="2" />
+                </content>
+                <content type="text">
+                    <text value="Dit is het einde van de presentatie" />
+                    <level value="1" />
+                </content>
+                <content type="media">
+                    <reference value="JabberPoint.jpg" />
+                </content>
+            </contents>
+        </slide>
+	</slides>
+</slideshow>

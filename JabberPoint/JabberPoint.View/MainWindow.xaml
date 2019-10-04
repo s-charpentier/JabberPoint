@@ -18,7 +18,18 @@
             <MenuItem Header="_View">
                 <MenuItem Header="_Next" />
                 <MenuItem Header="_Prev" />
-                <MenuItem Header="_Go to" />
+                <MenuItem>
+                    <MenuItem.Header>
+                        <Grid HorizontalAlignment="Stretch">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock x:Name="textBlock1" Text="Go to" VerticalAlignment="Center"/>
+                            <TextBox Margin="5 0 0 0" Width="30" Grid.Column="1" HorizontalAlignment="Right"/>
+                        </Grid>
+                    </MenuItem.Header>
+                </MenuItem>
                 <Separator />
                 <MenuItem Header="_Themes">
                     <MenuItem Header="_Theme 1" />
@@ -28,8 +39,47 @@
             </MenuItem>
             <MenuItem Header="_Help">
                 <MenuItem Header="_About" />
+                
             </MenuItem>
         </Menu>
-        <StackPanel x:Name="SlideshowArea" Orientation="Vertical" DockPanel.Dock="Bottom"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Rectangle HorizontalAlignment="Stretch" 
+           
+           Margin="15,15,5,5" 
+           VerticalAlignment="Stretch" 
+           
+           StrokeThickness="4" 
+           Fill="#FF484A4D" 
+           Grid.Column="1" Opacity="0.5">
+                <Rectangle.Effect>
+                    <DropShadowEffect BlurRadius="10" 
+                           ShadowDepth="0" 
+                           Color="Black" Opacity="0.5"/>
+                </Rectangle.Effect>
+            </Rectangle>
+            <StackPanel x:Name="SlideshowArea" Orientation="Vertical" DockPanel.Dock="Bottom" Margin="10" Background="DarkGray"/>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Margin="5" Grid.Column="1">
+                    <Image Source="Resources/PreviousFrame_16x.png"/>
+                </Button>
+                <Button Margin="5" Grid.Column="2">
+                    <Image Source="Resources/PlayVideo_16x.png"/></Button>
+                <Button Margin="5" Grid.Column="3">
+                    <Image Source="Resources/NextFrameArrow_16x.png"/></Button>
+            </Grid>
+            <TextBlock FontFamily="Sitka Small"></TextBlock>
+        </Grid>
+        
     </DockPanel>
 </Window>

@@ -17,9 +17,9 @@ using System;
 using System.Xml;
 using System.Xml.Serialization;
 
-[SerializableAttribute()]
-[XmlTypeAttribute(AnonymousType=true)]
-[XmlRootAttribute(Namespace="", IsNullable=false)]
+[Serializable]
+[XmlType(AnonymousType=true)]
+[XmlRoot(Namespace="", IsNullable=false)]
 public partial class slideshow {
     
     private slideshowTheme themeField;
@@ -39,7 +39,7 @@ public partial class slideshow {
     }
     
     /// <remarks/>
-    [XmlArrayItemAttribute("metainfo", IsNullable=false)]
+    [XmlArrayItem("metainfo", IsNullable=false)]
     public slideshowMetainfo[] metainfos {
         get {
             return this.metainfosField;
@@ -50,7 +50,7 @@ public partial class slideshow {
     }
     
     /// <remarks/>
-    [XmlArrayItemAttribute("slide", IsNullable=false)]
+    [XmlArrayItem("slide", IsNullable=false)]
     public slideshowSlide[] slides {
         get {
             return this.slidesField;
@@ -61,14 +61,14 @@ public partial class slideshow {
     }
 }
 
-[SerializableAttribute()]
-[XmlTypeAttribute(AnonymousType=true)]
+[Serializable()]
+[XmlType(AnonymousType=true)]
 public partial class slideshowTheme {
     
     private string nameField;
     
     /// <remarks/>
-    [XmlAttributeAttribute()]
+    [XmlAttribute()]
     public string name {
         get {
             return this.nameField;
@@ -79,8 +79,8 @@ public partial class slideshowTheme {
     }
 }
 
-[SerializableAttribute()]
-[XmlTypeAttribute(AnonymousType=true)]
+[Serializable()]
+[XmlType(AnonymousType=true)]
 public partial class slideshowMetainfo {
     
     private string keyField;
@@ -88,7 +88,7 @@ public partial class slideshowMetainfo {
     private string valueField;
     
     /// <remarks/>
-    [XmlAttributeAttribute()]
+    [XmlAttribute()]
     public string key {
         get {
             return this.keyField;
@@ -99,7 +99,7 @@ public partial class slideshowMetainfo {
     }
     
     /// <remarks/>
-    [XmlAttributeAttribute()]
+    [XmlAttribute()]
     public string value {
         get {
             return this.valueField;
@@ -110,8 +110,8 @@ public partial class slideshowMetainfo {
     }
 }
 
-[SerializableAttribute()]
-[XmlTypeAttribute(AnonymousType=true)]
+[Serializable()]
+[XmlType(AnonymousType=true)]
 public partial class slideshowSlide {
     
     private slideshowSlideMetainfo[] metainfosField;
@@ -119,7 +119,7 @@ public partial class slideshowSlide {
     private slideshowSlideContent[] contentsField;
     
     /// <remarks/>
-    [XmlArrayItemAttribute("metainfo", IsNullable=false)]
+    [XmlArrayItem("metainfo", IsNullable=false)]
     public slideshowSlideMetainfo[] metainfos {
         get {
             return this.metainfosField;
@@ -130,7 +130,7 @@ public partial class slideshowSlide {
     }
     
     /// <remarks/>
-    [XmlArrayItemAttribute("content", IsNullable=false)]
+    [XmlArrayItem("content", IsNullable=false)]
     public slideshowSlideContent[] contents {
         get {
             return this.contentsField;
@@ -141,8 +141,8 @@ public partial class slideshowSlide {
     }
 }
 
-[SerializableAttribute()]
-[XmlTypeAttribute(AnonymousType=true)]
+[Serializable()]
+[XmlType(AnonymousType=true)]
 public partial class slideshowSlideMetainfo {
     
     private string keyField;
@@ -150,7 +150,7 @@ public partial class slideshowSlideMetainfo {
     private string valueField;
     
     /// <remarks/>
-    [XmlAttributeAttribute()]
+    [XmlAttribute()]
     public string key {
         get {
             return this.keyField;
@@ -161,7 +161,7 @@ public partial class slideshowSlideMetainfo {
     }
     
     /// <remarks/>
-    [XmlAttributeAttribute()]
+    [XmlAttribute()]
     public string value {
         get {
             return this.valueField;
@@ -172,8 +172,8 @@ public partial class slideshowSlideMetainfo {
     }
 }
 
-[SerializableAttribute()]
-[XmlTypeAttribute(AnonymousType=true)]
+[Serializable()]
+[XmlType(AnonymousType=true)]
 public partial class slideshowSlideContent {
     
     private slideshowSlideContentReference referenceField;
@@ -215,7 +215,7 @@ public partial class slideshowSlideContent {
     }
     
     /// <remarks/>
-    [XmlAttributeAttribute()]
+    [XmlAttribute()]
     public string type {
         get {
             return this.typeField;
@@ -226,14 +226,14 @@ public partial class slideshowSlideContent {
     }
 }
 
-[SerializableAttribute()]
-[XmlTypeAttribute(AnonymousType=true)]
+[Serializable()]
+[XmlType(AnonymousType=true)]
 public partial class slideshowSlideContentReference {
     
     private string valueField;
     
     /// <remarks/>
-    [XmlAttributeAttribute()]
+    [XmlAttribute()]
     public string value {
         get {
             return this.valueField;
@@ -244,14 +244,14 @@ public partial class slideshowSlideContentReference {
     }
 }
 
-[SerializableAttribute()]
-[XmlTypeAttribute(AnonymousType=true)]
+[Serializable()]
+[XmlType(AnonymousType=true)]
 public partial class slideshowSlideContentText {
     
     private string valueField;
     
     /// <remarks/>
-    [XmlAttributeAttribute()]
+    [XmlAttribute()]
     public string value {
         get {
             return this.valueField;
@@ -262,14 +262,14 @@ public partial class slideshowSlideContentText {
     }
 }
 
-[SerializableAttribute()]
-[XmlTypeAttribute(AnonymousType=true)]
+[Serializable()]
+[XmlType(AnonymousType=true)]
 public partial class slideshowSlideContentLevel {
     
     private byte valueField;
     
     /// <remarks/>
-    [XmlAttributeAttribute()]
+    [XmlAttribute()]
     public byte value {
         get {
             return this.valueField;

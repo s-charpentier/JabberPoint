@@ -50,6 +50,7 @@
     <Compile Include="Content\Content.cs" />
     <Compile Include="Content\IContent.cs" />
     <Compile Include="Helpers\Alignment.cs" />
+    <Compile Include="Helpers\FontWeight.cs" />
     <Compile Include="Helpers\FontStyle.cs" />
     <Compile Include="Helpers\TextDecoration.cs" />
     <Compile Include="ISlide.cs" />

@@ -29,7 +29,7 @@ namespace JabberPoint.View.InterfaceExtensions
                 FontFamily = new System.Windows.Media.FontFamily(level.Font),
                 FontStyle = level.FontStyle.HasFlag(JabberPoint.Domain.Helpers.FontStyle.Italic) ? FontStyles.Italic : FontStyles.Normal,
                 FontWeight = level.FontStyle.HasFlag(JabberPoint.Domain.Helpers.FontStyle.Italic) ? FontWeights.Bold : FontWeights.Normal,
-                Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom(level.FontColour))
+                Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom(level.FontColor))
             };
         }
     }

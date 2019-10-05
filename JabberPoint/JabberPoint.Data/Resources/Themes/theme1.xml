@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<theme>
+  <styles>
+    <style id="1">
+      <fontFamily value="Arial" />
+      <FontColor value="#FF0000" />
+      <FontStyle value="italic" />
+      <fontWeight value="normal" />
+      <FontSize value="16" />
+      <TextAlign value="left" />
+      <TextDecoration value="none" />
+      <backgroundColor value="#FFFFFF" />
+    </style>
+    <style id="2">
+      <fontFamily value="Arial" />
+      <FontColor value="#FF0000" />
+      <FontStyle value="italic" />
+      <fontWeight value="normal" />
+      <FontSize value="16" />
+      <TextAlign value="left" />
+      <TextDecoration value="none" />
+      <backgroundColor value="#FFFFFF" />
+    </style>
+  </styles>
+  <levels>
+    <level level="1" style="1" />
+    <level level="2" style="2" />
+    <level level="3" style="3" />
+    <level level="4" style="4" />
+    <level level="5" style="5" />
+    <level level="6" style="6" />
+  </levels>
+</theme>

@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.329
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29326.143
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JabberPoint.View", "JabberPoint.View\JabberPoint.View.csproj", "{AE88BB91-C133-42FC-9CA3-7ADE2D4A8D71}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JabberPoint.Domain", "JabberPoint.Domain\JabberPoint.Domain.csproj", "{A19F20FA-C8A5-4C5B-90FC-97DCBC08B58B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JabberPoint.Data", "JabberPoint.Data\JabberPoint.Data.csproj", "{01F96AA2-1ACA-4E3F-9C4C-3487FCE9CB89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JabberPoint.Business", "JabberPoint.Business\JabberPoint.Business.csproj", "{C2190323-BEA9-4749-BD96-4188CDC14BB1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{01F96AA2-1ACA-4E3F-9C4C-3487FCE9CB89}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01F96AA2-1ACA-4E3F-9C4C-3487FCE9CB89}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01F96AA2-1ACA-4E3F-9C4C-3487FCE9CB89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2190323-BEA9-4749-BD96-4188CDC14BB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2190323-BEA9-4749-BD96-4188CDC14BB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2190323-BEA9-4749-BD96-4188CDC14BB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2190323-BEA9-4749-BD96-4188CDC14BB1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

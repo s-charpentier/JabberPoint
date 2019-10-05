@@ -5,9 +5,9 @@ using System.Text;
 namespace JabberPoint.Domain.Helpers
 {
     [Flags]
-    public enum FontStyle
+    public enum FontWeight
     {
-        Normal=0,
-        Italic = 1<<1
+        Normal = 0,
+        Bold = 1 << 1
     }
 }

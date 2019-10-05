@@ -30,6 +30,16 @@ namespace JabberPoint.View
             CreateLabel();
             CreateImage();
             CreateLabel();
+            CreateImage();
+            CreateLabel();
+            CreateLabel();
+            CreateImage();
+            CreateLabel();
+            CreateImage();
+            CreateLabel();
+            CreateLabel();
+            CreateImage();
+            CreateLabel();
 
         }
 

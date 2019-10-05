@@ -18,18 +18,7 @@
             <MenuItem Header="_View">
                 <MenuItem Header="_Next" />
                 <MenuItem Header="_Prev" />
-                <MenuItem>
-                    <MenuItem.Header>
-                        <Grid HorizontalAlignment="Stretch">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock x:Name="textBlock1" Text="Go to" VerticalAlignment="Center"/>
-                            <TextBox Margin="5 0 0 0" Width="30" Grid.Column="1" HorizontalAlignment="Right"/>
-                        </Grid>
-                    </MenuItem.Header>
-                </MenuItem>
+                <MenuItem Header="_Go To" />
                 <Separator />
                 <MenuItem Header="_Themes">
                     <MenuItem Header="_Theme 1" />
@@ -43,31 +32,30 @@
             </MenuItem>
         </Menu>
         <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition Height="50"/>
-            </Grid.RowDefinitions>
-            <StackPanel x:Name="SlideshowArea" Orientation="Vertical" DockPanel.Dock="Bottom" Background="White"/>
-            <Grid Grid.Row="1">
+            <StackPanel  x:Name="SlideshowArea" Orientation="Vertical" Background="White"/>
+            <Grid VerticalAlignment="Bottom" HorizontalAlignment="Left">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="150"/>
-                    <ColumnDefinition Width="150"/>
-                    <ColumnDefinition Width="150"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="30"/>
                 </Grid.ColumnDefinitions>
 
-                <Button Margin="5" Grid.Column="1">
-                    <Path Data="M6 6h2v12H6zm3.5 6l8.5 6V6z" Stroke="Black" Fill="Black" />
+                <Button Margin="4" Padding="4" Grid.Column="0">
+                    <Viewbox>
+                        <Path Data="M0 0h2v12H0zm3.5 6l8.5 6V0z" Stroke="Black" Fill="Black" />
+                    </Viewbox>
                 </Button>
-                <Button Margin="5" Grid.Column="2">
-                    <Path Data="F1 M8 5v14l11-7z" Stroke="Black" Fill="Black" />
+                <Button Margin="4" Padding="4" Grid.Column="1">
+                    <Viewbox>
+                        <Path Data="M0 0v14l11-7z" Stroke="Black" Fill="Black" />
+                    </Viewbox>
                 </Button>
-                <Button Margin="5" Grid.Column="3">
-                    <Path Data="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z" Stroke="Black" Fill="Black" />
+                <Button Margin="4" Padding="4" Grid.Column="2">
+                    <Viewbox>
+                        <Path Data="M0 12l8.5-6L0 0v6zM10 6v6h2V0h-2z" Stroke="Black" Fill="Black" />
+                    </Viewbox>
                 </Button>
             </Grid>
-            <TextBlock FontFamily="Sitka Small"></TextBlock>
         </Grid>
         
     </DockPanel>

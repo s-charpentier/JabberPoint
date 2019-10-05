@@ -31,31 +31,31 @@ namespace JabberPoint.Business
 
                 foreach (var datacontent in dataslide.contents)
                 {
-                    var datacontentType = datacontent.type;
-
-                    ContentFactory factory;
-
-                    switch (datacontentType)
-                    {
-                        case "text":
-                            factory = new TextContentFactory(datacontent.text.value, datacontent.level.value);
-                            break;
-                        case "image":
-                        case "media":
-                            factory = new ImageContentFactory(datacontent.reference.value);
-                            break;
-                        case "list":
-                        default:
-                            factory = null;
-                            break;
-                    }
-
-                    IContent content = factory.GetContent();
-                    slide.Contents.Add(content);
+                    slide.Contents.Add(GetContent(datacontent));
                 }
             }
 
             return slideshow;
+        }
+
+        private static IContent GetContent(slideshowSlideContent contentData)
+        {
+            IContentFactory factory;
+            switch (contentData.type)
+            {
+                case "text":
+                    factory = new TextContentFactory(contentData.text.value, contentData.level.value);
+                    break;
+                case "image":
+                case "media":
+                    factory = new ImageContentFactory(contentData.reference.value);
+                    break;
+                case "list":
+                default:
+                    factory = null;
+                    break;
+            }
+            return factory.GetContent();
         }
     }
 }

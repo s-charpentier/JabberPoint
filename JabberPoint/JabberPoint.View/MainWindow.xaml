@@ -41,7 +41,7 @@
                     <ColumnDefinition Width="30"/>
                 </Grid.ColumnDefinitions>
 
-                <Button Margin="4" Padding="4" Grid.Column="0">
+                <Button Margin="4" Padding="4" Grid.Column="0" Click="ButtonPrev_Click">
                     <Viewbox>
                         <Path Data="M0 0h2v12H0zm3.5 6l8.5 6V0z" Stroke="Black" Fill="Black" />
                     </Viewbox>
@@ -51,7 +51,7 @@
                         <Path Data="M0 0v14l11-7z" Stroke="Black" Fill="Black" />
                     </Viewbox>
                 </Button> -->
-                <Button Margin="4" Padding="4" Grid.Column="2">
+                <Button Margin="4" Padding="4" Grid.Column="2" Click="ButtonNext_Click">
                     <Viewbox>
                         <Path Data="M0 12l8.5-6L0 0v6zM10 6v6h2V0h-2z" Stroke="Black" Fill="Black" />
                     </Viewbox>

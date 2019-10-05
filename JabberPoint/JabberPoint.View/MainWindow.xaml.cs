@@ -26,34 +26,15 @@ namespace JabberPoint.View
         {
             InitializeComponent();
         }
-        /*
-        private void CreateLabel()
+
+        private void ButtonNext_Click(object sender, RoutedEventArgs e)
         {
-
-            Label label = new Label();
-
-            label.Content = "Hello World";
-            label.Foreground = new SolidColorBrush(Colors.White);
-            label.Background = new SolidColorBrush(Colors.Black);
-
-            SlideshowArea.Children.Add(label);
+            (this.DataContext as PresentationViewModel).NextSlide();
         }
 
-        private void CreateImage()
+        private void ButtonPrev_Click(object sender, RoutedEventArgs e)
         {
-
-            Image img = new Image();
-
-            BitmapImage bitmap = new BitmapImage();
-            bitmap.BeginInit();
-            bitmap.UriSource = new Uri("https://cdn.pixabay.com/photo/2013/07/12/17/47/test-pattern-152459__340.png");
-            bitmap.EndInit();
-            img.Source = bitmap;
-
-            img.Height = 100;
-
-            SlideshowArea.Children.Add(img);
+            (this.DataContext as PresentationViewModel).PreviousSlide();
         }
-        */
     }
 }

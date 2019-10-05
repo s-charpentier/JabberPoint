@@ -4,31 +4,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
-namespace JabberPoint.View
+namespace JabberPoint.View.BehaviourDrawers
 {
-    public abstract class BehaviourUiFactory
+    class TextBehaviourDrawer : TextBehaviour, IBehaviourDrawer
     {
-        public abstract void DefineAction(ContentBehaviourDrawer drawer);
-    }
-
-    public class TextBehaviourUiFactory : BehaviourUiFactory
-    {
-        public override void DefineAction(ContentBehaviourDrawer drawer) 
+        TextBehaviour Behaviour { get; set; }
+        public TextBehaviourDrawer(TextBehaviour behaviourToDraw)
         {
-            drawer.UiConverter = (inTextBehaviour) =>
+            this.Behaviour = behaviourToDraw;
+        }
+
+        public FrameworkElement Draw() {
+            /*var levelBehaviour = textBehaviour.Parent.GetBehaviour<ILevelledBehaviour>();*/
+            return new System.Windows.Controls.TextBlock()
             {
-                var textBehaviour = (ITextBehaviour)inTextBehaviour;
-                /*var levelBehaviour = textBehaviour.Parent.GetBehaviour<ILevelledBehaviour>();*/
-                return new System.Windows.Controls.TextBlock()
-                {
-                    Text = textBehaviour.Text /*,
+                Text = this.Behaviour.Text /*,
                     FontSize = levelBehaviour.FontSize,
                     FontFamily = new System.Windows.Media.FontFamily(levelBehaviour.Font),
                     FontStyle = levelBehaviour.FontStyle.HasFlag(JabberPoint.Domain.Helpers.FontStyle.Italic) ? FontStyles.Italic : FontStyles.Normal,
                     FontWeight = levelBehaviour.FontStyle.HasFlag(JabberPoint.Domain.Helpers.FontStyle.Italic) ? FontWeights.Bold : FontWeights.Normal,
                     Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom(levelBehaviour.FontColor)) */
-                };
             };
         }
     }

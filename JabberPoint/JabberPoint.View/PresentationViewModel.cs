@@ -10,6 +10,7 @@ using System.Windows;
 using JabberPoint.Domain;
 using JabberPoint.Business;
 using JabberPoint.Domain.Content.Behaviours;
+using JabberPoint.View.BehaviourDrawers;
 
 namespace JabberPoint.View
 {
@@ -24,7 +25,7 @@ namespace JabberPoint.View
     {
         ISlideshow Slideshow { get; set; }
         int CurrentIndex { get; set; }
-        CurrentSlideViewModel CurrentSlideVM { get; set; }
+        public CurrentSlideViewModel CurrentSlideVM { get; set; }
         public PresentationViewModel()
         {
             this.Slideshow = SlideshowManager.LoadDefaultXml();
@@ -34,17 +35,11 @@ namespace JabberPoint.View
             {
                 foreach (var content in slide.Contents)
                 {
-                    foreach (var behaviour in content.Behaviours.OfType<ContentBehaviourDrawer>())
+                    for (int i = 0; i < content.Behaviours.Count; i++)
                     {
-                        BehaviourUiFactory factory = null;
-                        if (behaviour as ITextBehaviour != null)
-                        {
-                            factory = new TextBehaviourUiFactory();
-                        }
-
-                        if (factory != null)
-                        {
-                            factory.DefineAction(behaviour);
+                        var drawer = GetBehaviourDrawer(content.Behaviours[i]);
+                        if (drawer != null) {
+                            content.Behaviours[i] = drawer;
                         }
                     }
                 }
@@ -54,11 +49,49 @@ namespace JabberPoint.View
             this.CurrentSlideVM = new CurrentSlideViewModel(currentSlide);
             OnPropertyChanged("CurrentSlideVM");
         }
+
+        public void SetCurrentSlide(int slideNumber) {
+
+            if (slideNumber >= this.Slideshow.Slides.Count ||
+                slideNumber < 0) {
+                return;
+            }
+            CurrentIndex = slideNumber;
+            ISlide currentSlide = this.Slideshow.Slides[this.CurrentIndex];
+            this.CurrentSlideVM = new CurrentSlideViewModel(currentSlide);
+            OnPropertyChanged("CurrentSlideVM");
+        }
+
+        public void NextSlide()
+        {
+            SetCurrentSlide(this.CurrentIndex + 1);
+        }
+
+        public void PreviousSlide()
+        {
+            SetCurrentSlide(this.CurrentIndex - 1);
+        }
+
+        private IBehaviourDrawer GetBehaviourDrawer(IContentBehaviour behaviour)
+        {
+            IBehaviourDrawer drawer;
+
+            switch (behaviour.GetType().Name)
+            {
+                case nameof(TextBehaviour):
+                    drawer = new TextBehaviourDrawer(behaviour as TextBehaviour);
+                    break;
+                default:
+                    drawer = null;
+                    break;
+            }
+            return drawer;
+        }
     }
     public class CurrentSlideViewModel : ViewModel
     {
         ISlide slide { get; set; }
-        ObservableCollection<FrameworkElement> ContentElements { get; set; }
+        public ObservableCollection<FrameworkElement> ContentElements { get; set; }
 
         public CurrentSlideViewModel(ISlide slide)
         {
@@ -67,9 +100,9 @@ namespace JabberPoint.View
 
             foreach (var content in this.slide.Contents)
             {
-                foreach (var behaviourDrawer in content.Behaviours.OfType<ContentBehaviourDrawer>())
+                foreach (var behaviourDrawer in content.Behaviours.OfType<IBehaviourDrawer>())
                 {
-                    var uiElement = (FrameworkElement)behaviourDrawer.Draw();
+                    var uiElement = behaviourDrawer.Draw();
                     if (uiElement != null) {
                         ContentElements.Add(uiElement);
                     }

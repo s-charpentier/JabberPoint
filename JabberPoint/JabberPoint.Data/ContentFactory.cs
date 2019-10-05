@@ -7,12 +7,12 @@ using System.Text;
 
 namespace JabberPoint.Data
 {
-    public abstract class ContentFactory
+    public interface IContentFactory
     {
-        public abstract IContent GetContent();
+        IContent GetContent();
     }
 
-    public class TextContentFactory : ContentFactory
+    public class TextContentFactory : IContentFactory
     {
         private string _text;
         private int _level;
@@ -21,7 +21,7 @@ namespace JabberPoint.Data
             this._text = text;
             this._level = level;
         }
-        public override IContent GetContent()
+        public IContent GetContent()
         {
             Content content = new Content();
             TextBehaviour tb = content.AddBehaviour<TextBehaviour>();
@@ -34,14 +34,14 @@ namespace JabberPoint.Data
         }
     }
 
-    public class ImageContentFactory : ContentFactory
+    public class ImageContentFactory : IContentFactory
     {
         private string _reference;
         public ImageContentFactory(string reference)
         {
             this._reference = reference;
         }
-        public override IContent GetContent()
+        public IContent GetContent()
         {
             Content content = new Content();
             MediaBehaviour mb = content.AddBehaviour<MediaBehaviour>();
@@ -52,7 +52,7 @@ namespace JabberPoint.Data
         }
     }
 
-    public class ListContentFactory : ContentFactory
+    public class ListContentFactory : IContentFactory
     {
         private char _separator;
         List<IListableBehaviour> _listables;
@@ -63,7 +63,7 @@ namespace JabberPoint.Data
             this._listables = listables.ToList();
 
         }
-        public override IContent GetContent()
+        public IContent GetContent()
         {
             Content content = new Content();
             ListBehaviour lb = content.AddBehaviour<ListBehaviour>();

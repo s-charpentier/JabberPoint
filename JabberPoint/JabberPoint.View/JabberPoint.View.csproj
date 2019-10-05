@@ -61,7 +61,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BehaviourUiFactory.cs" />
+    <Compile Include="BehaviourDrawers\IBehaviourDrawer.cs" />
+    <Compile Include="BehaviourDrawers\TextBehaviourDrawer.cs" />
     <Compile Include="InterfaceExtensions\ContentDrawExtensions.cs" />
     <Compile Include="InterfaceExtensions\SlideDrawExtensions.cs" />
     <Compile Include="MainWindow.xaml.cs">

@@ -22,12 +22,26 @@
       <backgroundColor value="#FFFFFF" />
     </style>
   </styles>
-  <levels>
-    <level level="1" style="1" />
-    <level level="2" style="2" />
-    <level level="3" style="3" />
-    <level level="4" style="4" />
-    <level level="5" style="5" />
-    <level level="6" style="6" />
-  </levels>
+  <slide type="default">
+    <backgroundimage value="" />
+    <levels>
+      <level level="1" style="1" />
+      <level level="2" style="2" />
+      <level level="3" style="3" />
+      <level level="4" style="4" />
+      <level level="5" style="5" />
+      <level level="6" style="6" />
+    </levels>
+  </slide>
+  <slide type="first">
+    <backgroundimage value="" />
+    <levels>
+      <level level="1" style="1" />
+      <level level="2" style="2" />
+      <level level="3" style="3" />
+      <level level="4" style="4" />
+      <level level="5" style="5" />
+      <level level="6" style="6" />
+    </levels>
+  </slide>
 </theme>

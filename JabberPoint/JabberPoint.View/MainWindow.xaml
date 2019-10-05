@@ -47,21 +47,7 @@
                 <RowDefinition />
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
-            <Rectangle HorizontalAlignment="Stretch" 
-           
-           Margin="15,15,5,5" 
-           VerticalAlignment="Stretch" 
-           
-           StrokeThickness="4" 
-           Fill="#FF484A4D" 
-           Grid.Column="1" Opacity="0.5">
-                <Rectangle.Effect>
-                    <DropShadowEffect BlurRadius="10" 
-                           ShadowDepth="0" 
-                           Color="Black" Opacity="0.5"/>
-                </Rectangle.Effect>
-            </Rectangle>
-            <StackPanel x:Name="SlideshowArea" Orientation="Vertical" DockPanel.Dock="Bottom" Margin="10" Background="DarkGray"/>
+            <StackPanel x:Name="SlideshowArea" Orientation="Vertical" DockPanel.Dock="Bottom" Background="White"/>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -70,13 +56,16 @@
                     <ColumnDefinition Width="150"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
+
                 <Button Margin="5" Grid.Column="1">
-                    <Image Source="Resources/PreviousFrame_16x.png"/>
+                    <Path Data="M6 6h2v12H6zm3.5 6l8.5 6V6z" Stroke="Black" Fill="Black" />
                 </Button>
                 <Button Margin="5" Grid.Column="2">
-                    <Image Source="Resources/PlayVideo_16x.png"/></Button>
+                    <Path Data="F1 M8 5v14l11-7z" Stroke="Black" Fill="Black" />
+                </Button>
                 <Button Margin="5" Grid.Column="3">
-                    <Image Source="Resources/NextFrameArrow_16x.png"/></Button>
+                    <Path Data="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z" Stroke="Black" Fill="Black" />
+                </Button>
             </Grid>
             <TextBlock FontFamily="Sitka Small"></TextBlock>
         </Grid>

@@ -99,11 +99,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\NextFrameArrow_16x.png" />
-    <Resource Include="Resources\PlayVideo_16x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\PreviousFrame_16x.png" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

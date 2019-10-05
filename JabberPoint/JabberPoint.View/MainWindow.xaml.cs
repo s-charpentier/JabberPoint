@@ -25,14 +25,8 @@ namespace JabberPoint.View
         public MainWindow()
         {
             InitializeComponent();
-            CreateImage();
-            CreateLabel();
-            CreateLabel();
-            CreateImage();
-            CreateLabel();
-            CreateImage();
         }
-
+        /*
         private void CreateLabel()
         {
 
@@ -60,7 +54,6 @@ namespace JabberPoint.View
 
             SlideshowArea.Children.Add(img);
         }
-
-        //
+        */
     }
 }

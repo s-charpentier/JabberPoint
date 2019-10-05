@@ -6,6 +6,6 @@ namespace JabberPoint.Domain
 {
     public interface ISlideshow
     {
-        List<Slide> Slides { get; }
+        List<ISlide> Slides { get; }
     }
 }

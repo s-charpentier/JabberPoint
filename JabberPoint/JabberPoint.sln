@@ -10,6 +10,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JabberPoint.Data", "JabberPoint.Data\JabberPoint.Data.csproj", "{01F96AA2-1ACA-4E3F-9C4C-3487FCE9CB89}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JabberPoint.Business", "JabberPoint.Business\JabberPoint.Business.csproj", "{C2190323-BEA9-4749-BD96-4188CDC14BB1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A19F20FA-C8A5-4C5B-90FC-97DCBC08B58B} = {A19F20FA-C8A5-4C5B-90FC-97DCBC08B58B}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

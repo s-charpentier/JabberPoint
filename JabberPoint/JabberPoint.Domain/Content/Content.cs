@@ -12,6 +12,11 @@ namespace JabberPoint.Domain.Content
     {
         public List<IContentBehaviour> Behaviours { get; private set; }
 
+        public Content()
+        {
+            this.Behaviours = new List<IContentBehaviour>();
+        }
+
         /**
          * function AddBehaviour
          * Template function that adds a behaviour of a given type to the Content object

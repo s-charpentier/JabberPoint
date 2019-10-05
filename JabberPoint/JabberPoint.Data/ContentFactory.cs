@@ -7,12 +7,12 @@ using System.Text;
 
 namespace JabberPoint.Data
 {
-    abstract class ContentFactory
+    public abstract class ContentFactory
     {
         public abstract IContent GetContent();
     }
 
-    class TextContentFactory : ContentFactory
+    public class TextContentFactory : ContentFactory
     {
         private string _text;
         private int _level;
@@ -34,7 +34,7 @@ namespace JabberPoint.Data
         }
     }
 
-    class ImageContentFactory : ContentFactory
+    public class ImageContentFactory : ContentFactory
     {
         private string _reference;
         public ImageContentFactory(string reference)
@@ -52,7 +52,7 @@ namespace JabberPoint.Data
         }
     }
 
-    class ListContentFactory : ContentFactory
+    public class ListContentFactory : ContentFactory
     {
         private char _separator;
         List<IListableBehaviour> _listables;

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using JabberPoint.Business;
+using JabberPoint.Domain;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +15,11 @@ namespace JabberPoint.View
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            var main = new MainWindow();
+            main.DataContext = new PresentationViewModel();
+            main.Show();
+        }
     }
 }

@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Content\Behaviours\ContentBehaviourDrawer.cs" />
     <Compile Include="Content\Behaviours\IContentBehaviour.cs" />
     <Compile Include="Content\Behaviours\IListableBehaviour.cs" />
     <Compile Include="Content\Behaviours\LevelledBehaviour.cs" />

@@ -12,6 +12,7 @@ namespace JabberPoint.Data
         public XmlLoader(string inputUrl)
         {
             this.InputUrl = inputUrl;
+            Read();
         }
 
         private void Read() {

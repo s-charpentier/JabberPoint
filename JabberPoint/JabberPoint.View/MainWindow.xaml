@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JabberPoint.View"
+        d:DataContext="{d:DesignInstance local:PresentationViewModel}"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <DockPanel Margin="0,0,0,0">
@@ -32,7 +33,7 @@
             </MenuItem>
         </Menu>
         <Grid>
-            <StackPanel x:Name="SlideshowArea" Orientation="Vertical" Background="White"/>
+            <ItemsControl x:Name="SlideshowArea" ItemsSource="{Binding Path=CurrentSlideVM.ContentElements }" Background="White"/>
             <Grid VerticalAlignment="Bottom" HorizontalAlignment="Left">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="30"/>

@@ -11,7 +11,7 @@ namespace JabberPoint.Domain.Content.Behaviours
         List<IListableBehaviour> ContentList { get; set; }
 
     }
-    public class ListBehaviour : ContentBehaviourDrawer, IContentBehaviour
+    public class ListBehaviour : IContentBehaviour
     {
         public IContent Parent { get; set; }
 

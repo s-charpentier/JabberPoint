@@ -8,7 +8,7 @@ namespace JabberPoint.Domain.Content.Behaviours
     {
         string Text { get; set; }
     }
-    public class TextBehaviour : ContentBehaviourDrawer, ITextBehaviour
+    public class TextBehaviour : ITextBehaviour
     {
         public IContent Parent { get; set; }
         public string Text { get; set; }

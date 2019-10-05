@@ -9,7 +9,7 @@ namespace JabberPoint.Domain.Content.Behaviours
         string Reference { get; set; }
         string IsPlaying { get; }
     }
-    public class MediaBehaviour : ContentBehaviourDrawer, IContentBehaviour
+    public class MediaBehaviour : IContentBehaviour
     {
         public IContent Parent { get; set; }
         public string Reference { get; set; }

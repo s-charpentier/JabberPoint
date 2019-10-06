@@ -33,7 +33,7 @@
       <level level="6" style="6" />
     </levels>
   </slide>
-  <slide type="first">
+  <slide type="1,2,5">
     <backgroundimage value="" />
     <levels>
       <level level="1" style="1" />

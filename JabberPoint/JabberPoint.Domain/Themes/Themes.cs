@@ -7,7 +7,7 @@ namespace JabberPoint.Domain.Themes
 {
     public class Themes
     {
-        private List<Theme> _internalList;
+        private List<Theme> _internalList { get; set; } = new List<Theme>();
 
         public Theme this[string name]=>_internalList.First(x=>x.Name == name);
     }

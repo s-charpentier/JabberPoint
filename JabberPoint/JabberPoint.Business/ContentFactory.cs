@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace JabberPoint.Data
+namespace JabberPoint.Business
 {
     public interface IContentFactory
     {
@@ -24,8 +24,8 @@ namespace JabberPoint.Data
         public IContent GetContent()
         {
             Content content = new Content();
-            TextBehaviour tb = content.AddBehaviour<TextBehaviour>();
-            LevelledBehaviour lb = content.AddBehaviour<LevelledBehaviour>();
+            ITextBehaviour<object> tb = content.AddBehaviour<TextBehaviour>();
+            ILevelledBehaviour lb = content.AddBehaviour<LevelledBehaviour>();
 
             tb.Text = this._text;
             lb.Level = this._level;
@@ -55,9 +55,9 @@ namespace JabberPoint.Data
     public class ListContentFactory : IContentFactory
     {
         private char _separator;
-        List<IListableBehaviour> _listables;
-        public ListContentFactory(char separator, params IListableBehaviour[] listables) : this(separator, listables.AsEnumerable()) { }
-        public ListContentFactory(char separator, IEnumerable<IListableBehaviour> listables)
+        List<IListableBehaviour<object>> _listables;
+        public ListContentFactory(char separator, params IListableBehaviour<object>[] listables) : this(separator, listables.AsEnumerable()) { }
+        public ListContentFactory(char separator, IEnumerable<IListableBehaviour<object>> listables)
         {
             this._separator = separator;
             this._listables = listables.ToList();

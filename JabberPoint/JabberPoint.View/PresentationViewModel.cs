@@ -31,19 +31,19 @@ namespace JabberPoint.View
             this.Slideshow = SlideshowManager.LoadDefaultXml();
             this.CurrentIndex = 0;
 
-            foreach (var slide in this.Slideshow.Slides)
-            {
-                foreach (var content in slide.Contents)
-                {
-                    for (int i = 0; i < content.Behaviours.Count; i++)
-                    {
-                        var drawer = GetBehaviourDrawer(content.Behaviours[i]);
-                        if (drawer != null) {
-                            content.Behaviours[i] = drawer;
-                        }
-                    }
-                }
-            }
+            //foreach (var slide in this.Slideshow.Slides)
+            //{
+            //    foreach (var content in slide.Contents)
+            //    {
+            //        for (int i = 0; i < content.Behaviours.Count; i++)
+            //        {
+            //            var drawer = GetBehaviourDrawer(content.Behaviours[i]);
+            //            if (drawer != null) {
+            //                content.Behaviours[i] = drawer;
+            //            }
+            //        }
+            //    }
+            //}
 
             ISlide currentSlide = this.Slideshow.Slides[0];
             this.CurrentSlideVM = new CurrentSlideViewModel(currentSlide);
@@ -100,7 +100,7 @@ namespace JabberPoint.View
 
             foreach (var content in this.slide.Contents)
             {
-                foreach (var behaviourDrawer in content.Behaviours.OfType<IBehaviourDrawer>())
+                foreach (var behaviourDrawer in content.Behaviours.OfType<IDrawableBehaviour<FrameworkElement>>())
                 {
                     var uiElement = behaviourDrawer.Draw();
                     if (uiElement != null) {

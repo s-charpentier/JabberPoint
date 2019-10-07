@@ -4,7 +4,7 @@ using System.Text;
 
 namespace JabberPoint.Domain.Content.Behaviours
 {
-    public interface IListableBehaviour : IContentBehaviour
+    public interface IListableBehaviour<T> : IDrawableBehaviour<T>
     {
     }
 }

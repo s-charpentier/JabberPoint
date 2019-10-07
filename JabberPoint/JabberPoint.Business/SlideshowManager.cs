@@ -31,13 +31,32 @@ namespace JabberPoint.Business
 
                 foreach (var datacontent in dataslide.contents)
                 {
-                    slide.Contents.Add(GetContent(datacontent));
+                    slide.Contents.Add(GetWpfContent(datacontent));
                 }
             }
 
             return slideshow;
         }
 
+        private static IContent GetWpfContent(slideshowSlideContent contentData)
+        {
+            IContentFactory factory;
+            switch (contentData.type)
+            {
+                case "text":
+                    factory = new WpfTextContentFactory(contentData.text.value, contentData.level.value);
+                    break;
+                case "image":
+                case "media":
+                    factory = new WpfImageContentFactory(contentData.reference.value);
+                    break;
+                case "list":
+                default:
+                    factory = null;
+                    break;
+            }
+            return factory.GetContent();
+        }
         private static IContent GetContent(slideshowSlideContent contentData)
         {
             IContentFactory factory;

@@ -11,6 +11,8 @@ using JabberPoint.Domain;
 using JabberPoint.Business;
 using JabberPoint.Domain.Content.Behaviours;
 using JabberPoint.View.BehaviourDrawers;
+using JabberPoint.Domain.Themes;
+using System.Windows.Data;
 
 namespace JabberPoint.View
 {
@@ -26,6 +28,9 @@ namespace JabberPoint.View
         ISlideshow Slideshow { get; set; }
         int CurrentIndex { get; set; }
         public CurrentSlideViewModel CurrentSlideVM { get; set; }
+        public FooterViewModel CurrentThemeFooterVM { get; set; }
+        
+
         public PresentationViewModel()
         {
             this.Slideshow = SlideshowManager.LoadDefaultXml();
@@ -92,10 +97,32 @@ namespace JabberPoint.View
     }
     public class FooterViewModel : ViewModel
     {
+        public ObservableCollection<FrameworkElement> ContentElements { get; set; }
 
+        public FooterViewModel(int currentIndex)
+        {
+            ContentElements = new ObservableCollection<FrameworkElement>();
+       
+
+            foreach (var content in Themes.GetSingleton().GetFooter().Contents)
+            {
+                foreach (var behaviourDrawer in content.Value.Behaviours.OfType<IDrawableBehaviour<FrameworkElement>>())
+                {
+                    var uiElement = behaviourDrawer.Draw(currentIndex);
+                    if (uiElement != null)
+                    {
+                        ContentElements.Add(uiElement);
+                    }
+                }
+            }
+            OnPropertyChanged("ContentElements");
+        }
     }
     public class CurrentSlideViewModel : ViewModel
     {
+        public string BackgroundColor { get; set; } = "#005566";
+        public string BackgroundImage { get; set; }
+        public bool BackGroundUsed => string.IsNullOrWhiteSpace(BackgroundImage);
         ISlide slide { get; set; }
         public ObservableCollection<FrameworkElement> ContentElements { get; set; }
 

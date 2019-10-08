@@ -28,6 +28,8 @@ namespace JabberPoint.Domain.Themes
         /// <param name="page">the number of the page for which to retrieve the themes</param>
         /// <returns>the themerules for the pagenumber provided, or the default themerules</returns>
         public PageTheme this[int page] => PageThemes.FirstOrDefault(x => x.Key  == page).Value?? PageThemes[0];
+
+        public Footer Footer { get; set; }
     }
     /// <summary>
     /// The theme definition that can be grouped per individual page.

@@ -7,6 +7,9 @@
         d:DataContext="{d:DesignInstance local:PresentationViewModel}"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis" />
+    </Window.Resources>
     <DockPanel Margin="0,0,0,0">
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_File">
@@ -32,17 +35,19 @@
                 
             </MenuItem>
         </Menu>
-        <Grid>
-            <Grid>
+        
+        <Grid Background="{Binding Path=CurrentSlideVM.BackgroundColor}">
+            <Image Source="{Binding Path=CurrentSlideVM.BackgroundImage}" Visibility="{Binding Path=CurrentSlideVM.BackGroundUsed, Converter={StaticResource BoolToVis} }" Panel.ZIndex="1" ></Image>
+            <Grid Panel.ZIndex="2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <ItemsControl x:Name="SlideshowArea" ItemsSource="{Binding Path=CurrentSlideVM.ContentElements }" Background="White" Grid.Row="0"/>
-                <ItemsControl x:Name="FooterArea" ItemsSource="{Binding Path=CurrentSlideVM.ContentElements }" Background="White" Grid.Row="1"/>
+                <ItemsControl x:Name="FooterArea" ItemsSource="{Binding Path=CurrentThemeFooterVM.ContentElements }" Background="White" Grid.Row="1"/>
             </Grid>
-            
-            <Grid VerticalAlignment="Bottom" HorizontalAlignment="Left">
+
+            <Grid VerticalAlignment="Bottom" HorizontalAlignment="Left" Panel.ZIndex="3">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="30"/>
                     <!-- <ColumnDefinition Width="30"/> -->

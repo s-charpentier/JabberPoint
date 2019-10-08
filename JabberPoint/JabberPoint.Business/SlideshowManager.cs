@@ -49,6 +49,7 @@ namespace JabberPoint.Business
                     slide.Contents.Add(slide.Contents.Count, factoryLoader(datacontent));
                 }
             }
+            slideshow.MetaData["[PageCount]"] = slideshow.Slides.Count.ToString();
             return slideshow;
         }
 

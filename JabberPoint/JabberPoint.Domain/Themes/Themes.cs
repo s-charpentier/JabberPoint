@@ -54,7 +54,12 @@ namespace JabberPoint.Business
         /// <returns></returns>
         public Theme this[string name]=>_internalList.First(x=>x.Name == name);
 
-
+        /// <summary>
+        /// gets the common footer for a theme
+        /// </summary>
+        /// <returns></returns>
+        public Footer GetFooter()
+            => this[currentTheme].Footer;
         /// <summary>
         /// sets the currently used theme name
         /// </summary>

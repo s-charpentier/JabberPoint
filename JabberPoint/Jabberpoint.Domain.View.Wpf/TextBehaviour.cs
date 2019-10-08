@@ -12,10 +12,11 @@ namespace JabberPoint.Domain.View.Wpf.Content.Behaviours
     {
         public IContent Parent { get; set; }
         public string Text { get; set; }
-        public static Type GetType() => typeof(FrameworkElement);
-        public FrameworkElement Draw()
+        
+        public FrameworkElement Draw(int pageNr)
         {
-            /*var levelBehaviour = textBehaviour.Parent.GetBehaviour<ILevelledBehaviour>();*/
+            var themeManager = ThemeManager.GetSingleton();
+            var levelBehaviour = textBehaviour.Parent.GetBehaviour<ILevelledBehaviour>();
             return new System.Windows.Controls.TextBlock()
             {
                 Text = this.Text /*,

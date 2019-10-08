@@ -12,7 +12,7 @@ namespace JabberPoint.Business
         IContent GetContent();
     }
 
-    public class TextContentFactory : IContentFactory
+    public class TextContentFactory<T>: IContentFactory  where T: ITextBehaviour, new()
     {
         private string _text;
         private int _level;
@@ -24,7 +24,7 @@ namespace JabberPoint.Business
         public IContent GetContent()
         {
             Content content = new Content();
-            ITextBehaviour<object> tb = content.AddBehaviour<TextBehaviour>();
+            T tb = content.AddBehaviour<T>();
             ILevelledBehaviour lb = content.AddBehaviour<LevelledBehaviour>();
 
             tb.Text = this._text;
@@ -34,7 +34,7 @@ namespace JabberPoint.Business
         }
     }
 
-    public class ImageContentFactory : IContentFactory
+    public class ImageContentFactory<T>: IContentFactory where T: IMediaBehaviour, new()
     {
         private string _reference;
         public ImageContentFactory(string reference)
@@ -44,7 +44,7 @@ namespace JabberPoint.Business
         public IContent GetContent()
         {
             Content content = new Content();
-            MediaBehaviour mb = content.AddBehaviour<MediaBehaviour>();
+            T mb = content.AddBehaviour<T>();
 
             mb.Reference = this._reference;
 

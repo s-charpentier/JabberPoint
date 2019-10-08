@@ -10,7 +10,7 @@ using System.Windows.Media.Imaging;
 namespace JabberPoint.Domain.View.Wpf.Content.Behaviours
 {
 
-    public class WpfMediaBehaviour : IMediaBehaviour<FrameworkElement>
+    public class WpfMediaBehaviour : IMediaBehaviour, IDrawableBehaviour<FrameworkElement>
     {
         public IContent Parent { get; set; }
         public string Reference { get; set; }

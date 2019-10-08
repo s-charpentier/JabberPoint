@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 namespace JabberPoint.Domain.Content.Behaviours
 {
 
-    public interface IDrawcreateableBehaviour : IContentBehaviour
-    {
-    }
-    public interface IDrawableBehaviour<T> : IDrawcreateableBehaviour
+    
+    public interface IDrawableBehaviour<T> : IContentBehaviour
     {
         T Draw();
     }

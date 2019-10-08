@@ -26,8 +26,9 @@ namespace JabberPoint.Business
     /// </summary>
     public class Themes
     {
-private List<Theme> _internalList { get; set; } = new List<Theme>();
-
+        private List<Theme> _internalList { get; set; } = new List<Theme>();
+        public void SetList(IEnumerable<Theme> themes)
+            => _internalList.AddRange(themes);
         //private Themes themes;
         private string currentTheme;
         private static Themes _themeManager;
@@ -39,13 +40,18 @@ private List<Theme> _internalList { get; set; } = new List<Theme>();
         /// static singleton creator function
         /// </summary>
         /// <returns>the theme manager</returns>
-        public static Themes GetSingleTon()
+        public static Themes GetSingleton()
         {
             if (_themeManager == null)
-                _themeManager = new ThemeManager();
+                _themeManager = new Themes();
             return _themeManager;
         }
         
+        /// <summary>
+        /// gets the theme denoted by a specific name
+        /// </summary>
+        /// <param name="name">the theme name</param>
+        /// <returns></returns>
         public Theme this[string name]=>_internalList.First(x=>x.Name == name);
 
 

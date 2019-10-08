@@ -33,7 +33,15 @@
             </MenuItem>
         </Menu>
         <Grid>
-            <ItemsControl x:Name="SlideshowArea" ItemsSource="{Binding Path=CurrentSlideVM.ContentElements }" Background="White"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <ItemsControl x:Name="SlideshowArea" ItemsSource="{Binding Path=CurrentSlideVM.ContentElements }" Background="White" Grid.Row="0"/>
+                <ItemsControl x:Name="FooterArea" ItemsSource="{Binding Path=CurrentSlideVM.ContentElements }" Background="White" Grid.Row="1"/>
+            </Grid>
+            
             <Grid VerticalAlignment="Bottom" HorizontalAlignment="Left">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="30"/>

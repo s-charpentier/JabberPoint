@@ -1,6 +1,9 @@
 ﻿using JabberPoint.Data;
 using JabberPoint.Domain;
+using JabberPoint.Domain.Themes;
 using JabberPoint.Domain.Content;
+using JabberPoint.Domain.Content.Behaviours;
+using JabberPoint.Domain.View.Wpf.Content.Behaviours;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +14,21 @@ namespace JabberPoint.Business
 {
     public static class SlideshowManager
     {
+        public static void ThemeLoader(string inputUrl= "./themes.xml")
+        {
+            var theme = Themes.GetSingleton();
+            
+            //load from xml here
+        }
+
         public static ISlideshow LoadDefaultXml()
             => LoadXmlFromFile("./slideshow.xml");
+
         public static ISlideshow LoadXmlFromFile(string inputUrl)
+            => LoadSlides(inputUrl, GetWpfContent);   
+        
+
+        private static ISlideshow LoadSlides(string inputUrl,Func<slideshowSlideContent,IContent> factoryLoader)
         {
             JabberPoint.Data.slideshow data;
             JabberPoint.Domain.Slideshow slideshow;
@@ -31,10 +46,9 @@ namespace JabberPoint.Business
 
                 foreach (var datacontent in dataslide.contents)
                 {
-                    slide.Contents.Add(GetWpfContent(datacontent));
+                    slide.Contents.Add(slide.Contents.Count, factoryLoader(datacontent));
                 }
             }
-
             return slideshow;
         }
 

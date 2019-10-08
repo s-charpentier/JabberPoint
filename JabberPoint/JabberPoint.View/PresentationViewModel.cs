@@ -29,6 +29,8 @@ namespace JabberPoint.View
         public PresentationViewModel()
         {
             this.Slideshow = SlideshowManager.LoadDefaultXml();
+            SlideshowManager.ThemeLoader();
+
             this.CurrentIndex = 0;
 
             //foreach (var slide in this.Slideshow.Slides)
@@ -46,7 +48,7 @@ namespace JabberPoint.View
             //}
 
             ISlide currentSlide = this.Slideshow.Slides[0];
-            this.CurrentSlideVM = new CurrentSlideViewModel(currentSlide);
+            this.CurrentSlideVM = new CurrentSlideViewModel(currentSlide,CurrentIndex);
             OnPropertyChanged("CurrentSlideVM");
         }
 
@@ -88,6 +90,10 @@ namespace JabberPoint.View
             return drawer;
         }
     }
+    public class FooterViewModel : ViewModel
+    {
+
+    }
     public class CurrentSlideViewModel : ViewModel
     {
         ISlide slide { get; set; }
@@ -100,7 +106,7 @@ namespace JabberPoint.View
 
             foreach (var content in this.slide.Contents)
             {
-                foreach (var behaviourDrawer in content.Behaviours.OfType<IDrawableBehaviour<FrameworkElement>>())
+                foreach (var behaviourDrawer in content.Value.Behaviours.OfType<IDrawableBehaviour<FrameworkElement>>())
                 {
                     var uiElement = behaviourDrawer.Draw(index);
                     if (uiElement != null) {

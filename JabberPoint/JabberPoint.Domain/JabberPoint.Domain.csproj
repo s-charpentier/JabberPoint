@@ -54,9 +54,12 @@
     <Compile Include="Helpers\FontWeight.cs" />
     <Compile Include="Helpers\FontStyle.cs" />
     <Compile Include="Helpers\TextDecoration.cs" />
+    <Compile Include="IPageComponent.cs" />
+    <Compile Include="IFooter.cs" />
     <Compile Include="ISlide.cs" />
     <Compile Include="ISlideshow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Footer.cs" />
     <Compile Include="Slide.cs" />
     <Compile Include="Slideshow.cs" />
     <Compile Include="Themes\Style.cs" />

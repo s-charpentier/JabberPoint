@@ -55,9 +55,9 @@ namespace JabberPoint.Business
     public class ListContentFactory : IContentFactory
     {
         private char _separator;
-        List<IListableBehaviour<object>> _listables;
-        public ListContentFactory(char separator, params IListableBehaviour<object>[] listables) : this(separator, listables.AsEnumerable()) { }
-        public ListContentFactory(char separator, IEnumerable<IListableBehaviour<object>> listables)
+        List<IListableBehaviour> _listables;
+        public ListContentFactory(char separator, params IListableBehaviour[] listables) : this(separator, listables.AsEnumerable()) { }
+        public ListContentFactory(char separator, IEnumerable<IListableBehaviour> listables)
         {
             this._separator = separator;
             this._listables = listables.ToList();

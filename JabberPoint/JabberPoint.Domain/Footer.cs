@@ -5,12 +5,12 @@ using JabberPoint.Domain.Content;
 
 namespace JabberPoint.Domain
 {
-    public class Slide : ISlide
+    public class Footer : IFooter
     {
         public SortedList<int, IContent> Contents { get; private set; }
 
        
-        public Slide()
+        public Footer()
         {
             this.Contents = new SortedList<int, IContent>();
         }

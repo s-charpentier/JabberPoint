@@ -4,5 +4,5 @@ using System.Text;
 
 namespace JabberPoint.Domain
 {
-    public interface ISlide: IPageComponent{}
+    public interface IFooter: IPageComponent {}
 }

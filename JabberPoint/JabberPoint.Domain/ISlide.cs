@@ -5,9 +5,11 @@ using JabberPoint.Domain.Content;
 
 namespace JabberPoint.Domain
 {
-    public interface ISlide
+    public interface IPageComponent
     {
 
         List<IContent> Contents { get; }
     }
+    public interface ISlide: IPageComponent{}
+    public interfaces IFooter: IPageComponent {}
 }

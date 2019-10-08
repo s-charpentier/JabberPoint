@@ -8,7 +8,7 @@ using JabberPoint.Domain.Content.Behaviours;
 namespace JabberPoint.Domain.View.Wpf.Content.Behaviours
 {
 
-    public class WpfTextBehaviour : ITextBehaviour<FrameworkElement>
+    public class WpfTextBehaviour : ITextBehaviour, IDrawableBehaviour<FrameworkElement>
     {
         public IContent Parent { get; set; }
         public string Text { get; set; }

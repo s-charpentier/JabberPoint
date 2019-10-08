@@ -4,12 +4,12 @@ using System.Text;
 
 namespace JabberPoint.Domain.Content.Behaviours
 {
-    public interface IMediaBehaviour<T> : IDrawableBehaviour<T>
+    public interface IMediaBehaviour : IContentBehaviour
     {
         string Reference { get; set; }
         string IsPlaying { get; }
     }
-    public class MediaBehaviour : IMediaBehaviour<object>
+    public class MediaBehaviour : IMediaBehaviour, IDrawableBehaviour<object>
     {
         public IContent Parent { get; set; }
         public string Reference { get; set; }

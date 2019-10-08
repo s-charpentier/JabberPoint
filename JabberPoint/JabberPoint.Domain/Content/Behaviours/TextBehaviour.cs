@@ -4,11 +4,11 @@ using System.Text;
 
 namespace JabberPoint.Domain.Content.Behaviours
 {
-    public interface ITextBehaviour<T> : IListableBehaviour<T>
+    public interface ITextBehaviour : IListableBehaviour
     {
         string Text { get; set; }
     }
-    public class TextBehaviour : ITextBehaviour<object>
+    public class TextBehaviour : ITextBehaviour, IDrawableBehaviour<object>
     {
         public IContent Parent { get; set; }
         public string Text { get; set; }

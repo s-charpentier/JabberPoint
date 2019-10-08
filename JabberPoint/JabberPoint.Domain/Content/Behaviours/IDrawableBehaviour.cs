@@ -10,6 +10,6 @@ namespace JabberPoint.Domain.Content.Behaviours
     
     public interface IDrawableBehaviour<T> : IContentBehaviour
     {
-        T Draw();
+        T Draw(int pageNr);
     }
 }

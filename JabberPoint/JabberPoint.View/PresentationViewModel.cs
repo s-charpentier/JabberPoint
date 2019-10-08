@@ -58,7 +58,7 @@ namespace JabberPoint.View
             }
             CurrentIndex = slideNumber;
             ISlide currentSlide = this.Slideshow.Slides[this.CurrentIndex];
-            this.CurrentSlideVM = new CurrentSlideViewModel(currentSlide);
+            this.CurrentSlideVM = new CurrentSlideViewModel(currentSlide,CurrentIndex);
             OnPropertyChanged("CurrentSlideVM");
         }
 
@@ -93,7 +93,7 @@ namespace JabberPoint.View
         ISlide slide { get; set; }
         public ObservableCollection<FrameworkElement> ContentElements { get; set; }
 
-        public CurrentSlideViewModel(ISlide slide)
+        public CurrentSlideViewModel(ISlide slide,int index)
         {
             ContentElements = new ObservableCollection<FrameworkElement>();
             this.slide = slide;
@@ -102,7 +102,7 @@ namespace JabberPoint.View
             {
                 foreach (var behaviourDrawer in content.Behaviours.OfType<IDrawableBehaviour<FrameworkElement>>())
                 {
-                    var uiElement = behaviourDrawer.Draw();
+                    var uiElement = behaviourDrawer.Draw(index);
                     if (uiElement != null) {
                         ContentElements.Add(uiElement);
                     }

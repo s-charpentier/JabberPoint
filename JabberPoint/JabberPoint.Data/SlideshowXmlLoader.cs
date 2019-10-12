@@ -5,11 +5,11 @@ using System.Xml.Serialization;
 
 namespace JabberPoint.Data
 {
-    public class XmlLoader
+    public class SlideshowXmlLoader
     {
         private String InputUrl { get; set; }
         public slideshow RootObject { get; private set; }
-        public XmlLoader(string inputUrl)
+        public SlideshowXmlLoader(string inputUrl)
         {
             this.InputUrl = inputUrl;
             Read();

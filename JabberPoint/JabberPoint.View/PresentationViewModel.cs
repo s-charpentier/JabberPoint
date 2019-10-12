@@ -28,7 +28,6 @@ namespace JabberPoint.View
         int CurrentIndex { get; set; }
         public CurrentSlideViewModel CurrentSlideVM { get; set; }
         public FooterViewModel CurrentThemeFooterVM { get; set; }
-        
 
         public PresentationViewModel()
         {
@@ -36,20 +35,6 @@ namespace JabberPoint.View
             SlideshowManager.ThemeLoader();
 
             this.CurrentIndex = 0;
-
-            //foreach (var slide in this.Slideshow.Slides)
-            //{
-            //    foreach (var content in slide.Contents)
-            //    {
-            //        for (int i = 0; i < content.Behaviours.Count; i++)
-            //        {
-            //            var drawer = GetBehaviourDrawer(content.Behaviours[i]);
-            //            if (drawer != null) {
-            //                content.Behaviours[i] = drawer;
-            //            }
-            //        }
-            //    }
-            //}
 
             ISlideSection currentSlide = this.Slideshow.Slides[0];
             this.CurrentSlideVM = new CurrentSlideViewModel(currentSlide,CurrentIndex);

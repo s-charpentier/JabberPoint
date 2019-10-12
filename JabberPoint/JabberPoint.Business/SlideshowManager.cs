@@ -33,7 +33,7 @@ namespace JabberPoint.Business
             JabberPoint.Data.slideshow data;
             JabberPoint.Domain.Slideshow slideshow;
 
-            XmlLoader loader = new XmlLoader(inputUrl);
+            SlideshowXmlLoader loader = new SlideshowXmlLoader(inputUrl);
 
             data = loader.RootObject;
 

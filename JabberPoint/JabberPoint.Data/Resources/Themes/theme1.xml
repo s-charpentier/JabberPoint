@@ -22,7 +22,7 @@
       <backgroundColor value="#FFFFFF" />
     </style>
   </styles>
-  <slide type="default">
+  <slide page="default">
     <backgroundimage value="" />
     <levels>
       <level level="1" style="1" />
@@ -33,7 +33,7 @@
       <level level="6" style="6" />
     </levels>
   </slide>
-  <slide type="1,2,5">
+  <slide page="1,2,5">
     <backgroundimage value="" />
     <levels>
       <level level="1" style="1" />

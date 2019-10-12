@@ -10,12 +10,11 @@ using JabberPoint.Domain.Themes;
 namespace JabberPoint.Domain.View.Wpf.Content.Behaviours
 {
 
-    public class WpfTextBehaviour : ITextBehaviour, IDrawableBehaviour<FrameworkElement>
+    public class WpfTextBehaviour : TextBehaviour<FrameworkElement>//, IDrawableBehaviour<FrameworkElement>
     {
-        public IContent Parent { get; set; }
-        public string Text { get; set; }
         
-        public FrameworkElement Draw(int pageNr)
+        
+        public override FrameworkElement Draw(int pageNr)
         {
             var themeManager = JabberPoint.Domain.Themes.Themes.GetSingleton();
             var levelBehaviour = this.Parent.GetBehaviour<ILevelledBehaviour>();

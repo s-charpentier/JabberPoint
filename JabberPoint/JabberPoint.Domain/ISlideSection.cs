@@ -9,7 +9,7 @@ using JabberPoint.Domain.Content;
 namespace JabberPoint.Domain
 {
 
-    public interface IPageComponent
+    public interface ISlideSection
     {
         SortedList<int,IContent> Contents { get; }
     }

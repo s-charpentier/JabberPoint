@@ -61,8 +61,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BehaviourDrawers\IBehaviourDrawer.cs" />
-    <Compile Include="BehaviourDrawers\TextBehaviourDrawer.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>

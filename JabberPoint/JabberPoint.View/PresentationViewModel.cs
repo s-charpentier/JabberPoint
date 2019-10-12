@@ -10,7 +10,6 @@ using System.Windows;
 using JabberPoint.Domain;
 using JabberPoint.Business;
 using JabberPoint.Domain.Content.Behaviours;
-using JabberPoint.View.BehaviourDrawers;
 using JabberPoint.Domain.Themes;
 using System.Windows.Data;
 
@@ -52,7 +51,7 @@ namespace JabberPoint.View
             //    }
             //}
 
-            ISlide currentSlide = this.Slideshow.Slides[0];
+            ISlideSection currentSlide = this.Slideshow.Slides[0];
             this.CurrentSlideVM = new CurrentSlideViewModel(currentSlide,CurrentIndex);
             OnPropertyChanged("CurrentSlideVM");
         }
@@ -64,7 +63,7 @@ namespace JabberPoint.View
                 return;
             }
             CurrentIndex = slideNumber;
-            ISlide currentSlide = this.Slideshow.Slides[this.CurrentIndex];
+            ISlideSection currentSlide = this.Slideshow.Slides[this.CurrentIndex];
             this.CurrentSlideVM = new CurrentSlideViewModel(currentSlide,CurrentIndex);
             OnPropertyChanged("CurrentSlideVM");
         }
@@ -78,22 +77,7 @@ namespace JabberPoint.View
         {
             SetCurrentSlide(this.CurrentIndex - 1);
         }
-
-        private IBehaviourDrawer GetBehaviourDrawer(IContentBehaviour behaviour)
-        {
-            IBehaviourDrawer drawer;
-
-            switch (behaviour.GetType().Name)
-            {
-                case nameof(TextBehaviour):
-                    drawer = new TextBehaviourDrawer(behaviour as TextBehaviour);
-                    break;
-                default:
-                    drawer = null;
-                    break;
-            }
-            return drawer;
-        }
+       
     }
     public class FooterViewModel : ViewModel
     {
@@ -123,10 +107,10 @@ namespace JabberPoint.View
         public string BackgroundColor { get; set; } = "#005566";
         public string BackgroundImage { get; set; }
         public bool BackGroundUsed => string.IsNullOrWhiteSpace(BackgroundImage);
-        ISlide slide { get; set; }
+        ISlideSection slide { get; set; }
         public ObservableCollection<FrameworkElement> ContentElements { get; set; }
 
-        public CurrentSlideViewModel(ISlide slide,int index)
+        public CurrentSlideViewModel(ISlideSection slide,int index)
         {
             ContentElements = new ObservableCollection<FrameworkElement>();
             this.slide = slide;

@@ -7,12 +7,12 @@ namespace JabberPoint.Domain
 {
     public sealed class Slideshow : ISlideshow
     {
-        public List<ISlide> Slides { get; private set; }
+        public List<ISlideSection> Slides { get; private set; }
         public Dictionary<string,string> MetaData { get { return _metaData; } }
         private static Dictionary<string, string> _metaData;
         public Slideshow()
         {
-            this.Slides = new List<ISlide>();
+            this.Slides = new List<ISlideSection>();
             _metaData = new Dictionary<string, string>();
         }
 

@@ -58,7 +58,7 @@ namespace JabberPoint.Business
         /// gets the common footer for a theme
         /// </summary>
         /// <returns></returns>
-        public Footer GetFooter()
+        public SlideSection GetFooter()
             => this[currentTheme].Footer;
         /// <summary>
         /// sets the currently used theme name

@@ -29,7 +29,7 @@ namespace JabberPoint.Domain.Themes
         /// <returns>the themerules for the pagenumber provided, or the default themerules</returns>
         public PageTheme this[int page] => PageThemes.FirstOrDefault(x => x.Key  == page).Value?? PageThemes[0];
 
-        public Footer Footer { get; set; }
+        public SlideSection Footer { get; set; }
     }
     /// <summary>
     /// The theme definition that can be grouped per individual page.

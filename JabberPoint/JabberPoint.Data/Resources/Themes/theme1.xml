@@ -2,20 +2,20 @@
 <theme>
   <styles>
     <style id="1">
-      <fontFamily value="Arial" />
+      <FontFamily value="Arial" />
       <FontColor value="#FF0000" />
       <FontStyle value="italic" />
-      <fontWeight value="normal" />
+      <FontWeight value="normal" />
       <FontSize value="16" />
       <TextAlign value="left" />
       <TextDecoration value="none" />
       <backgroundColor value="#FFFFFF" />
     </style>
     <style id="2">
-      <fontFamily value="Arial" />
+      <FontFamily value="Arial" />
       <FontColor value="#FF0000" />
       <FontStyle value="italic" />
-      <fontWeight value="normal" />
+      <FontWeight value="normal" />
       <FontSize value="16" />
       <TextAlign value="left" />
       <TextDecoration value="none" />
@@ -24,6 +24,7 @@
   </styles>
   <themefilters>
     <themefilter for="default">
+      <backgroundColor value="#FF00FF" />
       <backgroundimage value="" />
       <levels>
         <level level="1" style="1" />
@@ -35,6 +36,7 @@
       </levels>
     </themefilter>
     <themefilter for="1,2,5">
+      <backgroundColor value="#FFFF00" />
       <backgroundimage value="" />
       <levels>
         <level level="1" style="1" />

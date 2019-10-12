@@ -4,15 +4,27 @@ using System.Text;
 using JabberPoint.Domain.Helpers;
 namespace JabberPoint.Domain.Themes
 {
-    public class Style
+
+    public interface IStyle
     {
-        public string Font { get; private set; }
-        public string FontColor { get; private set; }
-        public FontStyle FontStyle { get; private set; }
-        public FontWeight FontWeight { get; private set; }
-        public int FontSize { get; private set; }
-        public Alignment TextAlign { get; private set; }
-        public TextDecoration TextDecoration { get; private set; }
+         string Font { get;  }
+         string FontColor { get; }
+         FontStyle FontStyle { get; }
+         FontWeight FontWeight { get; }
+         int FontSize { get; }
+         Alignment TextAlign { get; }
+         TextDecoration TextDecoration { get; }
+
+    }
+    public class Style : IStyle
+    {
+        public string Font { get;  set; }
+        public string FontColor { get;  set; }
+        public FontStyle FontStyle { get;  set; }
+        public FontWeight FontWeight { get;  set; }
+        public int FontSize { get;  set; }
+        public Alignment TextAlign { get;  set; }
+        public TextDecoration TextDecoration { get;  set; }
 
     }
 }

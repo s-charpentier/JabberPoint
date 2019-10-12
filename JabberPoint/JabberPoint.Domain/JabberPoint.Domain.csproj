@@ -60,6 +60,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SlideSection.cs" />
     <Compile Include="Slideshow.cs" />
+    <Compile Include="Themes\PageTheme.cs" />
     <Compile Include="Themes\Style.cs" />
     <Compile Include="Themes\Theme.cs" />
     <Compile Include="Themes\ThemeRule.cs" />

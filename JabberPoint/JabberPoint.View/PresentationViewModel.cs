@@ -32,7 +32,7 @@ namespace JabberPoint.View
         public PresentationViewModel()
         {
             this.Slideshow = SlideshowManager.LoadDefaultXml();
-            SlideshowManager.ThemeLoader();
+            ThemeManager.ThemeLoader();
 
             this.CurrentIndex = 0;
 
@@ -68,12 +68,12 @@ namespace JabberPoint.View
     {
         public ObservableCollection<FrameworkElement> ContentElements { get; set; }
 
-        public FooterViewModel(int currentIndex)
+        public FooterViewModel(int currentIndex,ISlideshow slideshow)
         {
             ContentElements = new ObservableCollection<FrameworkElement>();
        
 
-            foreach (var content in Themes.GetSingleton().GetFooter().Contents)
+            foreach (var content in slideshow.Footer.Contents)
             {
                 foreach (var behaviourDrawer in content.Value.Behaviours.OfType<IDrawableBehaviour<FrameworkElement>>())
                 {

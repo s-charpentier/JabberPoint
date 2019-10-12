@@ -54,12 +54,7 @@ namespace JabberPoint.Business
         /// <returns></returns>
         public Theme this[string name]=>_internalList.First(x=>x.Name == name);
 
-        /// <summary>
-        /// gets the common footer for a theme
-        /// </summary>
-        /// <returns></returns>
-        public SlideSection GetFooter()
-            => this[currentTheme].Footer;
+
         /// <summary>
         /// sets the currently used theme name
         /// </summary>
@@ -74,7 +69,7 @@ namespace JabberPoint.Business
         /// <param name="pageNr">the page of the slide</param>
         /// <param name="levelId">the level of the style</param>
         /// <returns>a style for a text content</returns>
-        public Style GetStyleForTheme(string themeName, int pageNr, int levelId)
+        public IStyle GetStyleForTheme(string themeName, int pageNr, int levelId)
             =>this[themeName][pageNr][levelId];
 
         /// <summary>
@@ -83,7 +78,7 @@ namespace JabberPoint.Business
         /// <param name="pageNr">the page of the slide</param>
         /// <param name="levelId">the level of the style</param>
         /// <returns>a style for a text content</returns>
-        public Style GetStyle(int pageNr,int levelId)
+        public IStyle GetStyle(int pageNr,int levelId)
             => GetStyleForTheme(currentTheme,pageNr, levelId);
 
         /// <summary>

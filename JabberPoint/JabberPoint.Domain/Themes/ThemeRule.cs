@@ -4,9 +4,15 @@ using System.Text;
 
 namespace JabberPoint.Domain.Themes
 {
-    public class ThemeRule
+    public interface IThemeRule
     {
-        public int LevelId { get; private set; }
-        public Style Style { get; private set; }
+        int LevelId { get; }
+        IStyle Style { get; }
+    }
+
+    public class ThemeRule:IThemeRule
+    {
+        public int LevelId { get; set; }
+        public IStyle Style { get; set; }
     }
 }

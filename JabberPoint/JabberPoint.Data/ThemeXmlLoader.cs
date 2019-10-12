@@ -17,7 +17,7 @@ namespace JabberPoint.Data
 
         private void Read()
         {
-            XmlSerializer mySerializer = new XmlSerializer(typeof(slideshow));
+            XmlSerializer mySerializer = new XmlSerializer(typeof(theme));
             this.RootObject = (theme)mySerializer.Deserialize(new FileStream(this.InputUrl, FileMode.Open));
         }
     }

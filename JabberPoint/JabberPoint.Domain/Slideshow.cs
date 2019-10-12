@@ -8,6 +8,9 @@ namespace JabberPoint.Domain
     public sealed class Slideshow : ISlideshow
     {
         public List<ISlideSection> Slides { get; private set; }
+
+        public ISlideSection Footer { get; set; }
+
         public Dictionary<string,string> MetaData { get { return _metaData; } }
         private static Dictionary<string, string> _metaData;
         public Slideshow()

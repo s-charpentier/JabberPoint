@@ -61,15 +61,15 @@ namespace JabberPoint.Data
     public partial class themeStyle
     {
 
-        private themeStyleFontFamily fontFamilyField;
+        private themeStyleFontFamily FontFamilyField;
 
-        private themeStyleFontColor fontColorField;
+        private themeStyleFontColor FontColorField;
 
-        private themeStyleFontStyle fontStyleField;
+        private themeStyleFontStyle FontStyleField;
 
-        private themeStyleFontWeight fontWeightField;
+        private themeStyleFontWeight FontWeightField;
 
-        private themeStyleFontSize fontSizeField;
+        private themeStyleFontSize FontSizeField;
 
         private themeStyleTextAlign textAlignField;
 
@@ -77,41 +77,41 @@ namespace JabberPoint.Data
 
         private themeStyleBackgroundColor backgroundColorField;
 
-        private byte idField;
+        private int idField;
 
         /// <remarks/>
-        public themeStyleFontFamily fontFamily
+        public themeStyleFontFamily FontFamily
         {
-            get { return this.fontFamilyField; }
-            set { this.fontFamilyField = value; }
+            get { return this.FontFamilyField; }
+            set { this.FontFamilyField = value; }
         }
 
         /// <remarks/>
         public themeStyleFontColor FontColor
         {
-            get { return this.fontColorField; }
-            set { this.fontColorField = value; }
+            get { return this.FontColorField; }
+            set { this.FontColorField = value; }
         }
 
         /// <remarks/>
         public themeStyleFontStyle FontStyle
         {
-            get { return this.fontStyleField; }
-            set { this.fontStyleField = value; }
+            get { return this.FontStyleField; }
+            set { this.FontStyleField = value; }
         }
 
         /// <remarks/>
-        public themeStyleFontWeight fontWeight
+        public themeStyleFontWeight FontWeight
         {
-            get { return this.fontWeightField; }
-            set { this.fontWeightField = value; }
+            get { return this.FontWeightField; }
+            set { this.FontWeightField = value; }
         }
 
         /// <remarks/>
         public themeStyleFontSize FontSize
         {
-            get { return this.fontSizeField; }
-            set { this.fontSizeField = value; }
+            get { return this.FontSizeField; }
+            set { this.FontSizeField = value; }
         }
 
         /// <remarks/>
@@ -137,7 +137,7 @@ namespace JabberPoint.Data
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public byte id
+        public int id
         {
             get { return this.idField; }
             set { this.idField = value; }
@@ -233,11 +233,11 @@ namespace JabberPoint.Data
     public partial class themeStyleFontSize
     {
 
-        private byte valueField;
+        private int valueField;
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public byte value
+        public int value
         {
             get { return this.valueField; }
             set { this.valueField = value; }
@@ -314,6 +314,7 @@ namespace JabberPoint.Data
     {
 
         private themeThemefilterBackgroundimage backgroundimageField;
+        private themeThemefilterBackgroundColor backgroundColorField;
 
         private themeThemefilterLevel[] levelsField;
 
@@ -324,6 +325,11 @@ namespace JabberPoint.Data
         {
             get { return this.backgroundimageField; }
             set { this.backgroundimageField = value; }
+        }
+        public themeThemefilterBackgroundColor backgroundColor
+        {
+            get { return this.backgroundColorField; }
+            set { this.backgroundColorField = value; }
         }
 
         /// <remarks/>
@@ -362,6 +368,25 @@ namespace JabberPoint.Data
             set { this.valueField = value; }
         }
     }
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.8.3928.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+    public partial class themeThemefilterBackgroundColor
+    {
+
+        private string valueField;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string value
+        {
+            get { return this.valueField; }
+            set { this.valueField = value; }
+        }
+    }
 
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.8.3928.0")]
@@ -372,13 +397,13 @@ namespace JabberPoint.Data
     public partial class themeThemefilterLevel
     {
 
-        private byte levelField;
+        private int levelField;
 
-        private byte styleField;
+        private int styleField;
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public byte level
+        public int level
         {
             get { return this.levelField; }
             set { this.levelField = value; }
@@ -386,7 +411,7 @@ namespace JabberPoint.Data
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public byte style
+        public int style
         {
             get { return this.styleField; }
             set { this.styleField = value; }

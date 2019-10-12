@@ -25,7 +25,7 @@ namespace JabberPoint.Domain.View.Wpf.Content.Behaviours
                     FontSize = style.FontSize,
                     FontFamily = new System.Windows.Media.FontFamily(style.Font),
                     FontStyle = style.FontStyle.HasFlag(JabberPoint.Domain.Helpers.FontStyle.Italic) ? FontStyles.Italic : FontStyles.Normal,
-                    FontWeight = style.FontStyle.HasFlag(JabberPoint.Domain.Helpers.FontWeight.Bold) ? FontWeights.Bold : FontWeights.Normal,
+                    FontWeight = style.FontWeight.HasFlag(JabberPoint.Domain.Helpers.FontWeight.Bold) ? FontWeights.Bold : FontWeights.Normal,
                     Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom(style.FontColor)) 
             };
         }

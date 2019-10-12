@@ -14,7 +14,7 @@ namespace JabberPoint.Domain.View.Wpf.Content.Behaviours
     {
         public override FrameworkElement Draw(int pageNr)
         {
-            return new System.Windows.Controls.Image() { Source = new BitmapImage(new Uri( Reference)) };
+            return new System.Windows.Controls.Image() { Source = new BitmapImage(new Uri( Reference, UriKind.Relative)) };
         }
     }
 }

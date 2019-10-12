@@ -1,4 +1,5 @@
-﻿using JabberPoint.Domain.Content;
+﻿using JabberPoint.Domain;
+using JabberPoint.Domain.Content;
 using JabberPoint.Domain.Content.Behaviours;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ namespace JabberPoint.Business
 {
     public interface IContentFactory
     {
-        IContent GetContent();
+        IContent GetContent(IMetadataProvider parent);
     }
 
     public class TextContentFactory<T>: IContentFactory  where T: ITextBehaviour, new()
@@ -21,9 +22,9 @@ namespace JabberPoint.Business
             this._text = text;
             this._level = level;
         }
-        public IContent GetContent()
+        public IContent GetContent(IMetadataProvider parent)
         {
-            Content content = new Content();
+            Content content = new Content(parent);
             T tb = content.AddBehaviour<T>();
             ILevelledBehaviour lb = content.AddBehaviour<LevelledBehaviour>();
 
@@ -41,9 +42,9 @@ namespace JabberPoint.Business
         {
             this._reference = reference;
         }
-        public IContent GetContent()
+        public IContent GetContent(IMetadataProvider parent)
         {
-            Content content = new Content();
+            Content content = new Content( parent);
             T mb = content.AddBehaviour<T>();
 
             mb.Reference = this._reference;
@@ -63,9 +64,9 @@ namespace JabberPoint.Business
             this._listables = listables.ToList();
 
         }
-        public IContent GetContent()
+        public IContent GetContent(IMetadataProvider parent)
         {
-            Content content = new Content();
+            Content content = new Content( parent);
             ListBehaviour lb = content.AddBehaviour<ListBehaviour>();
 
             lb.Separator = this._separator;

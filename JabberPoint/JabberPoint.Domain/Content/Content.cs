@@ -11,10 +11,11 @@ namespace JabberPoint.Domain.Content
     public class Content : IContent
     {
         public List<IContentBehaviour> Behaviours { get; private set; }
-
-        public Content()
+        private IMetadataProvider _parent;
+        public Content(IMetadataProvider parent)
         {
             this.Behaviours = new List<IContentBehaviour>();
+            _parent = parent;
         }
 
         
@@ -37,6 +38,11 @@ namespace JabberPoint.Domain.Content
         /// <returns> the first behaviour in the behaviourlist that matches the given behaviour</returns>
         public T GetBehaviour<T>() where T : IContentBehaviour {
             return this.Behaviours.OfType<T>().First();
+        }
+
+        public string GetValueForKey(string key)
+        {
+            return _parent.GetValueForKey(key);
         }
     }
 }

@@ -54,6 +54,7 @@
     <Compile Include="Helpers\FontWeight.cs" />
     <Compile Include="Helpers\FontStyle.cs" />
     <Compile Include="Helpers\TextDecoration.cs" />
+    <Compile Include="IMetadataProvider.cs" />
     <Compile Include="ISlideSection.cs" />
     <Compile Include="ISlideshow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -6,7 +6,7 @@ using JabberPoint.Domain.Helpers;
 
 namespace JabberPoint.Domain.Content
 {
-    public interface IContent
+    public interface IContent : IMetadataProvider
     {
         List<IContentBehaviour> Behaviours { get;}
         T GetBehaviour<T>() where T : IContentBehaviour;

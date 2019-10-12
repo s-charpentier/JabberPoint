@@ -8,11 +8,16 @@ namespace JabberPoint.Domain
     public class SlideSection : ISlideSection
     {
         public SortedList<int, IContent> Contents { get; private set; }
-
+        private IMetadataProvider _parent;
        
-        public SlideSection()
+        public SlideSection(IMetadataProvider parent)
         {
             this.Contents = new SortedList<int, IContent>();
+        }
+
+        public string GetValueForKey(string key)
+        {
+            return _parent.GetValueForKey(key);
         }
     }
 }

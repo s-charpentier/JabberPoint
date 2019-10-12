@@ -28,7 +28,7 @@ namespace JabberPoint.Business
             => LoadSlides(inputUrl, GetWpfContent);   
         
 
-        private static ISlideshow LoadSlides(string inputUrl,Func<slideshowSlideContent,IContent> factoryLoader)
+        private static ISlideshow LoadSlides(string inputUrl,Func<slideshowSlideContent, ISlideSection, IContent> factoryLoader)
         {
             JabberPoint.Data.slideshow data;
             JabberPoint.Domain.Slideshow slideshow;
@@ -41,19 +41,19 @@ namespace JabberPoint.Business
 
             foreach (var dataslide in data.slides)
             {
-                ISlideSection slide = new SlideSection();
+                ISlideSection slide = new SlideSection(slideshow);
                 slideshow.Slides.Add(slide);
 
                 foreach (var datacontent in dataslide.contents)
                 {
-                    slide.Contents.Add(slide.Contents.Count, factoryLoader(datacontent));
+                    slide.Contents.Add(slide.Contents.Count, factoryLoader(datacontent,slide));
                 }
             }
             slideshow.MetaData["[PageCount]"] = slideshow.Slides.Count.ToString();
             return slideshow;
         }
 
-        private static IContent GetWpfContent(slideshowSlideContent contentData)
+        private static IContent GetWpfContent(slideshowSlideContent contentData, ISlideSection parent)
         {
             IContentFactory factory;
             switch (contentData.type)
@@ -70,7 +70,7 @@ namespace JabberPoint.Business
                     factory = null;
                     break;
             }
-            return factory.GetContent();
+            return factory.GetContent(parent);
         }
        
     }

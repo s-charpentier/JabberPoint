@@ -4,7 +4,7 @@ using System.Text;
 
 namespace JabberPoint.Domain
 {
-    public interface ISlideshow
+    public interface ISlideshow:IMetadataProvider
     {
         List<ISlideSection> Slides { get; }
         Dictionary<string,string> MetaData { get; }

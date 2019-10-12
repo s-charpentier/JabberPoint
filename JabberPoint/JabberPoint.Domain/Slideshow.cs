@@ -15,7 +15,10 @@ namespace JabberPoint.Domain
             this.Slides = new List<ISlideSection>();
             _metaData = new Dictionary<string, string>();
         }
-
+        public string GetValueForKey(string key)
+        {
+            return _metaData[key]??"";
+        }
         public static string ReplaceTextWithMetaData(string text)
         {
             var output = text;

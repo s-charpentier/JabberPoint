@@ -20,31 +20,28 @@
                 <MenuItem Header="_Exit" />
             </MenuItem>
             <MenuItem Header="_View">
-                <MenuItem Header="_Next" />
-                <MenuItem Header="_Prev" />
+                <MenuItem Header="_Next" Command="{Binding Path=NextSlide}"/>
+                <MenuItem Header="_Prev" Command="{Binding Path=PreviousSlide}"/>
                 <MenuItem Header="_Go To" />
                 <Separator />
-                <MenuItem Header="_Themes">
-                    <MenuItem Header="_Theme 1" />
-                    <MenuItem Header="_Theme 2" />
-                    <MenuItem Header="_Theme 3" />
+                <MenuItem Name="themes" Header="_Themes">
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="_Help">
                 <MenuItem Header="_About" />
-                
+
             </MenuItem>
         </Menu>
-        
-        <Grid Background="{Binding Path=BackgroundColor}">
-            <Image Source="{Binding Path=BackgroundImage}" Visibility="{Binding Path=BackGroundUsed, Converter={StaticResource BoolToVis} }" Panel.ZIndex="1" ></Image>
-            <Grid Panel.ZIndex="2">
+
+        <Grid x:Name="grid" Background="{Binding Path=BackgroundColor}">
+            <Image Source="{Binding BackgroundImage}" Visibility="{Binding Path=BackGroundUsed, Converter={StaticResource BoolToVis}}" Stretch="Fill"   Width="{Binding ActualWidth, ElementName=grid, Mode=OneWay}" Height="{Binding ActualHeight, ElementName=grid, Mode=OneWay}" Panel.ZIndex="1"  />
+            <Grid Panel.ZIndex="2" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <ItemsControl x:Name="SlideshowArea" ItemsSource="{Binding Path=CurrentSlideVM.ContentElements }" Background="White" Grid.Row="0"/>
-                <ItemsControl x:Name="FooterArea" ItemsSource="{Binding Path=CurrentThemeFooterVM.ContentElements }" Background="White" Grid.Row="1"/>
+                <ItemsControl x:Name="SlideshowArea" ItemsSource="{Binding Path=CurrentSlideVM.ContentElements }" Grid.Row="0"/>
+                <ItemsControl x:Name="FooterArea" ItemsSource="{Binding Path=CurrentThemeFooterVM.ContentElements }"  Grid.Row="1"/>
             </Grid>
 
             <Grid VerticalAlignment="Bottom" HorizontalAlignment="Left" Panel.ZIndex="3">
@@ -58,7 +55,8 @@
                     <Viewbox>
                         <Path Data="M0 0h2v12H0zm3.5 6l8.5 6V0z" Stroke="Black" Fill="Black" />
                     </Viewbox>
-                </Button><!--
+                </Button>
+                <!--
                 <Button Margin="4" Padding="4" Grid.Column="1">
                     <Viewbox>
                         <Path Data="M0 0v14l11-7z" Stroke="Black" Fill="Black" />
@@ -71,6 +69,6 @@
                 </Button>
             </Grid>
         </Grid>
-        
+
     </DockPanel>
 </Window>

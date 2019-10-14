@@ -13,31 +13,63 @@ using JabberPoint.Domain.Content.Behaviours;
 using JabberPoint.Domain.Themes;
 using System.Windows.Data;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace JabberPoint.View
 {
-    public abstract class ViewModel : INotifyPropertyChanged
-    {
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName=null)
-            =>PropertyChanged?.Invoke(this,new PropertyChangedEventArgs(propertyName));        
-    }
+   
     public class PresentationViewModel : ViewModel
     {
-        public string BackgroundColor { get; set; } = "#005566";
-        public string BackgroundImage { get; set; }
-        public bool BackGroundUsed => string.IsNullOrWhiteSpace(BackgroundImage);
-
         private WindowController _controller;
         private ICommand _nextSlide;
         public ICommand NextSlide
-            => _nextSlide ?? (_nextSlide = new RelayCommand(() => _controller?.NextSlide())); 
-        
+            => _nextSlide ?? (_nextSlide = new RelayCommand(() => _controller?.NextSlide()));
+
         private ICommand _prevSlide;
         public ICommand PreviousSlide
-            => _prevSlide ?? (_prevSlide = new RelayCommand(() => _controller?.PreviousSlide())); 
+            => _prevSlide ?? (_prevSlide = new RelayCommand(() => _controller?.PreviousSlide()));
+
+        private ICommand _loadTheme;
+        public ICommand LoadTheme
+            => _loadTheme ?? (_loadTheme = new RelayCommand<string>(x => _controller?.LoadTheme(x)));
+
+        private Brush _backGround = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#005566"));
+        public Brush BackgroundColor
+        {
+            get { return _backGround; }
+            set
+            {
+                _backGround = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _image;
+        public string BackgroundImage
+        {
+            get { return _image; }
+            set
+            {
+                _image = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _imageUsed;
+
+        public bool BackGroundUsed
+        {
+            get { return _imageUsed; }
+            set
+            {
+                _imageUsed = value;
+                OnPropertyChanged();
+            }
+        }
+
         
+
         private SlideSectionViewModel _currentSlideViewModel;
         public SlideSectionViewModel CurrentSlideVM
         {
@@ -64,6 +96,19 @@ namespace JabberPoint.View
         }
         public void UpdateSlide(ISlideSection slide, int currentIndex)
         {
+            var themes = Themes.GetSingleton();
+            var used = !string.IsNullOrWhiteSpace(themes.GetBackgroundImage(currentIndex));
+            BackGroundUsed = used;
+            //BackgroundImage = new BitmapImage(new Uri(themes.GetBackgroundImage(currentIndex), UriKind.Relative)); 
+            if (used)
+            {
+                
+                BackgroundImage = AppDomain.CurrentDomain.BaseDirectory+"\\" + themes.GetBackgroundImage(currentIndex);
+            }
+          
+            if(!BackGroundUsed)
+                BackgroundColor=  new SolidColorBrush((Color)ColorConverter.ConvertFromString(themes.GetBackgroundColor(currentIndex)));
+
             CurrentSlideVM = new SlideSectionViewModel(slide,currentIndex);
             
         }
@@ -73,44 +118,5 @@ namespace JabberPoint.View
 
     }
    
-    public class SlideSectionViewModel : ViewModel
-    {
-        
-        ISlideSection slide { get; set; }
-        public ObservableCollection<FrameworkElement> ContentElements { get; set; }
-
-        public SlideSectionViewModel(ISlideSection slide,int index)//slide
-        {
-            ContentElements = new ObservableCollection<FrameworkElement>();
-            this.slide = slide;
-
-            foreach (var content in this.slide.Contents)
-            {
-                foreach (var behaviourDrawer in content.Value.Behaviours.OfType<IDrawableBehaviour<FrameworkElement>>())
-                {
-                    var uiElement = behaviourDrawer.Draw(index);
-                    if (uiElement != null) {
-                        ContentElements.Add(uiElement);
-                    }
-                }
-            }
-            OnPropertyChanged("ContentElements");
-        }
-        public SlideSectionViewModel(int currentIndex, ISlideshow slideshow)//Footer
-        {
-            foreach (var content in slideshow.Footer.Contents)
-            {
-                foreach (var behaviourDrawer in content.Value.Behaviours.OfType<IDrawableBehaviour<FrameworkElement>>())
-                {
-                    var uiElement = behaviourDrawer.Draw(currentIndex);
-                    if (uiElement != null)
-                    {
-                        ContentElements.Add(uiElement);
-                    }
-                }
-            }
-            OnPropertyChanged("ContentElement");
-        }
-
-    }
+    
 }

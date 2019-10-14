@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +26,15 @@ namespace JabberPoint.View
         public JabberPointView()
         {
             InitializeComponent();
+            foreach (FileInfo file in new DirectoryInfo("./").EnumerateFiles().Where(x => x.Name.StartsWith("theme")))
+            {
+                var menuItem = new MenuItem() {Header = file.Name};
+                menuItem.SetBinding(MenuItem.CommandProperty, new Binding("LoadTheme"));
+                menuItem.CommandParameter = file.Name;
+                
+                themes.Items.Add(menuItem);
+            }
+                
         }
 
         

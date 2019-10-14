@@ -20,7 +20,19 @@ namespace JabberPoint.View
 
         public void Execute(object parameter)
             => _action?.Invoke();
-            
-        
+    }
+    public class RelayCommand<T> : ICommand
+    {
+        public event EventHandler CanExecuteChanged;
+        private Action<T> _action;
+        public RelayCommand(Action<T> action)
+        {
+            _action = action;
+        }
+        public bool CanExecute(object parameter)
+            => true;
+
+        public void Execute(object parameter)
+            => _action?.Invoke((T)parameter);
     }
 }

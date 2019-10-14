@@ -14,7 +14,10 @@ namespace JabberPoint.Domain.View.Wpf.Content.Behaviours
     {
         public override FrameworkElement Draw(int pageNr)
         {
-            return new System.Windows.Controls.Image() { Source = new BitmapImage(new Uri( Reference, UriKind.Relative)) };
+            var bitmap = new BitmapImage(new Uri(Reference, UriKind.Relative));
+            var control = new System.Windows.Controls.Image() { Source = bitmap, Height= bitmap.Height };
+            
+            return control;
         }
     }
 }

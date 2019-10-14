@@ -18,23 +18,15 @@ using JabberPoint;
 namespace JabberPoint.View
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for JabberPointView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class JabberPointView : Window
     {
-        public MainWindow()
+        public JabberPointView()
         {
             InitializeComponent();
         }
 
-        private void ButtonNext_Click(object sender, RoutedEventArgs e)
-        {
-            (this.DataContext as PresentationViewModel).NextSlide();
-        }
-
-        private void ButtonPrev_Click(object sender, RoutedEventArgs e)
-        {
-            (this.DataContext as PresentationViewModel).PreviousSlide();
-        }
+        
     }
 }

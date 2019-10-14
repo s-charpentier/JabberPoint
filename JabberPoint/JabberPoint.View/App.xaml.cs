@@ -17,8 +17,9 @@ namespace JabberPoint.View
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            var main = new MainWindow();
-            main.DataContext = new PresentationViewModel();
+            var controller = new WindowController();
+            var main = new JabberPointView();
+            main.DataContext = new PresentationViewModel(controller);
             main.Show();
         }
     }

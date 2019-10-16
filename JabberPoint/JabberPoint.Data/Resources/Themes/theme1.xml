@@ -1,9 +1,49 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <theme>
   <styles>
+    <style id="0">
+      <FontFamily value="Arial" />
+      <FontColor value="#0000FF" />
+      <FontStyle value="normal" />
+      <FontWeight value="bold" />
+      <FontSize value="32" />
+      <TextAlign value="left" />
+      <TextDecoration value="none" />
+      <backgroundColor value="#FFFFFF" />
+    </style>
     <style id="1">
       <FontFamily value="Arial" />
-      <FontColor value="#FF0000" />
+      <FontColor value="#000000" />
+      <FontStyle value="normal" />
+      <FontWeight value="bold" />
+      <FontSize value="24" />
+      <TextAlign value="left" />
+      <TextDecoration value="none" />
+      <backgroundColor value="#FFFFFF" />
+    </style>
+    <style id="2">
+      <FontFamily value="Arial" />
+      <FontColor value="#000000" />
+      <FontStyle value="normal" />
+      <FontWeight value="normal" />
+      <FontSize value="20" />
+      <TextAlign value="left" />
+      <TextDecoration value="none" />
+      <backgroundColor value="#FFFFFF" />
+    </style>
+    <style id="3">
+      <FontFamily value="Arial" />
+      <FontColor value="#000000" />
+      <FontStyle value="normal" />
+      <FontWeight value="normal" />
+      <FontSize value="16" />
+      <TextAlign value="left" />
+      <TextDecoration value="none" />
+      <backgroundColor value="#FFFFFF" />
+    </style>
+    <style id="4">
+      <FontFamily value="Arial" />
+      <FontColor value="#000000" />
       <FontStyle value="italic" />
       <FontWeight value="normal" />
       <FontSize value="16" />
@@ -11,12 +51,12 @@
       <TextDecoration value="none" />
       <backgroundColor value="#FFFFFF" />
     </style>
-    <style id="2">
+    <style id="5">
       <FontFamily value="Arial" />
-      <FontColor value="#FF0000" />
+      <FontColor value="#000000" />
       <FontStyle value="italic" />
       <FontWeight value="normal" />
-      <FontSize value="16" />
+      <FontSize value="12" />
       <TextAlign value="left" />
       <TextDecoration value="none" />
       <backgroundColor value="#FFFFFF" />
@@ -24,27 +64,37 @@
   </styles>
   <themefilters>
     <themefilter for="default">
-      <backgroundColor value="#FF00FF" />
+      <backgroundColor value="#FFFFFF" />
+      <showMeta>
+        <metaInformation name="pageNumber" style="0" />
+        <metaInformation name="pageNumber" style="0" />
+        <metaInformation name="pageNumber" style="0" />
+      </showMeta>
       <backgroundimage value="" />
       <levels>
+        <level level="0" style="0" />
         <level level="1" style="1" />
         <level level="2" style="2" />
         <level level="3" style="3" />
         <level level="4" style="4" />
         <level level="5" style="5" />
-        <level level="6" style="6" />
       </levels>
     </themefilter>
-    <themefilter for="1,2,5">
+    <themefilter for="0">
       <backgroundColor value="#FFFF00" />
+      <showMeta>
+        <metaInformation name="pageNumber" style="0" />
+        <metaInformation name="pageNumber" style="0" />
+        <metaInformation name="pageNumber" style="0" />
+      </showMeta>
       <backgroundimage value="" />
       <levels>
-        <level level="1" style="1" />
+        <level level="0" style="0" />
+        <level level="1" style="0" />
         <level level="2" style="2" />
         <level level="3" style="3" />
         <level level="4" style="4" />
         <level level="5" style="5" />
-        <level level="6" style="6" />
       </levels>
     </themefilter>
   </themefilters>

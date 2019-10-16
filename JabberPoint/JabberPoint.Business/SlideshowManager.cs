@@ -59,11 +59,11 @@ namespace JabberPoint.Business
             switch (contentData.type)
             {
                 case "text":
-                    factory = new TextContentFactory<WpfTextBehaviour>(contentData.text.value, contentData.level.value);
+                    factory = new TextContentFactory(contentData.text.value, contentData.level.value);
                     break;
                 case "image":
                 case "media":
-                    factory = new ImageContentFactory<WpfMediaBehaviour>(contentData.reference.value);
+                    factory = new ImageContentFactory(contentData.reference.value);
                     break;
                 case "list":
                 default:

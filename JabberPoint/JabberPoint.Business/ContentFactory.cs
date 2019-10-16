@@ -1,6 +1,7 @@
 ﻿using JabberPoint.Domain;
 using JabberPoint.Domain.Content;
 using JabberPoint.Domain.Content.Behaviours;
+using JabberPoint.Domain.View.Wpf.Content.Behaviours;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace JabberPoint.Business
         IContent GetContent(IMetadataProvider parent);
     }
 
-    public class TextContentFactory<T>: IContentFactory  where T: ITextBehaviour, new()
+    public class TextContentFactory: IContentFactory
     {
         private string _text;
         private int _level;
@@ -25,7 +26,7 @@ namespace JabberPoint.Business
         public IContent GetContent(IMetadataProvider parent)
         {
             Content content = new Content(parent);
-            T tb = content.AddBehaviour<T>();
+            WpfTextBehaviour tb = content.AddBehaviour<WpfTextBehaviour>();
             ILevelledBehaviour lb = content.AddBehaviour<LevelledBehaviour>();
 
             tb.Text = this._text;
@@ -35,7 +36,7 @@ namespace JabberPoint.Business
         }
     }
 
-    public class ImageContentFactory<T>: IContentFactory where T: IMediaBehaviour, new()
+    public class ImageContentFactory: IContentFactory
     {
         private string _reference;
         public ImageContentFactory(string reference)
@@ -45,7 +46,7 @@ namespace JabberPoint.Business
         public IContent GetContent(IMetadataProvider parent)
         {
             Content content = new Content( parent);
-            T mb = content.AddBehaviour<T>();
+            WpfMediaBehaviour mb = content.AddBehaviour<WpfMediaBehaviour>();
 
             mb.Reference = this._reference;
 

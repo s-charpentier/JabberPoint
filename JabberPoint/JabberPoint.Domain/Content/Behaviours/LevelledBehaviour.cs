@@ -12,5 +12,9 @@ namespace JabberPoint.Domain.Content.Behaviours
     {
         public IContent Parent { get; set; }
         public int Level { get; set; }
+        public void Accept(IContentBehaviourVisitor visitor)
+        {
+            visitor.Visit(this);
+        }
     }
 }

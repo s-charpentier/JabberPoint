@@ -3,7 +3,6 @@ using JabberPoint.Domain;
 using JabberPoint.Domain.Themes;
 using JabberPoint.Domain.Content;
 using JabberPoint.Domain.Content.Behaviours;
-using JabberPoint.Domain.View.Wpf.Content.Behaviours;
 using System;
 using System.Collections.Generic;
 using System.Linq;

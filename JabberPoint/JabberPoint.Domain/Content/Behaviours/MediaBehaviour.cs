@@ -9,11 +9,13 @@ namespace JabberPoint.Domain.Content.Behaviours
         string Reference { get; set; }
         string IsPlaying { get; }
     }
-    public abstract class MediaBehaviour<T> : IMediaBehaviour, IDrawableBehaviour<T>
+    public class MediaBehaviour : IMediaBehaviour
     {
         public IContent Parent { get; set; }
         public string Reference { get; set; }
         public string IsPlaying { get; private set; }
-        public virtual T Draw(int pageNr) => throw new InvalidOperationException("please only use view specific classes");
+        public void Accept(IContentBehaviourVisitor visitor) {
+            visitor.Visit(this);
+        }
     }
 }

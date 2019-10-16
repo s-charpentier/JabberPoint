@@ -1,7 +1,6 @@
 ﻿using JabberPoint.Domain;
 using JabberPoint.Domain.Content;
 using JabberPoint.Domain.Content.Behaviours;
-using JabberPoint.Domain.View.Wpf.Content.Behaviours;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +25,7 @@ namespace JabberPoint.Business
         public IContent GetContent(IMetadataProvider parent)
         {
             Content content = new Content(parent);
-            WpfTextBehaviour tb = content.AddBehaviour<WpfTextBehaviour>();
+            TextBehaviour tb = content.AddBehaviour<TextBehaviour>();
             ILevelledBehaviour lb = content.AddBehaviour<LevelledBehaviour>();
 
             tb.Text = this._text;
@@ -46,7 +45,7 @@ namespace JabberPoint.Business
         public IContent GetContent(IMetadataProvider parent)
         {
             Content content = new Content( parent);
-            WpfMediaBehaviour mb = content.AddBehaviour<WpfMediaBehaviour>();
+            MediaBehaviour mb = content.AddBehaviour<MediaBehaviour>();
 
             mb.Reference = this._reference;
 

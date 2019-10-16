@@ -8,10 +8,13 @@ namespace JabberPoint.Domain.Content.Behaviours
     {
         string Text { get; set; }
     }
-    public abstract class TextBehaviour<T> : ITextBehaviour, IDrawableBehaviour<T>
+    public class TextBehaviour : ITextBehaviour
     {
         public IContent Parent { get; set; }
         public string Text { get; set; }
-        public virtual  T Draw(int pageNr) => throw new InvalidOperationException("please only use view specific classes");
+        public void Accept(IContentBehaviourVisitor visitor)
+        {
+            visitor.Visit(this);
+        }
     }
 }

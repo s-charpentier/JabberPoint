@@ -42,12 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Content\Behaviours\IContentBehaviour.cs" />
-    <Compile Include="Content\Behaviours\IDrawableBehaviour.cs" />
     <Compile Include="Content\Behaviours\IListableBehaviour.cs" />
     <Compile Include="Content\Behaviours\LevelledBehaviour.cs" />
     <Compile Include="Content\Behaviours\ListBehaviour.cs" />
     <Compile Include="Content\Behaviours\MediaBehaviour.cs" />
     <Compile Include="Content\Behaviours\TextBehaviour.cs" />
+    <Compile Include="Content\IContentBehaviourVisitor.cs" />
     <Compile Include="Content\Content.cs" />
     <Compile Include="Content\IContent.cs" />
     <Compile Include="Helpers\Alignment.cs" />

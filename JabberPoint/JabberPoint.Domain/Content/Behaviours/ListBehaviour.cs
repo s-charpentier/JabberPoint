@@ -18,5 +18,9 @@ namespace JabberPoint.Domain.Content.Behaviours
         public char Separator { get; set; }
         public List<IListableBehaviour> ContentList { get; set; }
 
+        public void Accept(IContentBehaviourVisitor visitor)
+        {
+            visitor.Visit(this);
+        }
     }
 }

@@ -52,10 +52,6 @@
       <Project>{01F96AA2-1ACA-4E3F-9C4C-3487FCE9CB89}</Project>
       <Name>JabberPoint.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Jabberpoint.Domain.View.Wpf\Jabberpoint.Domain.View.Wpf.csproj">
-      <Project>{dc367a28-849a-41ee-96b0-2c6ab8269189}</Project>
-      <Name>Jabberpoint.Domain.View.Wpf</Name>
-    </ProjectReference>
     <ProjectReference Include="..\JabberPoint.Domain\JabberPoint.Domain.csproj">
       <Project>{a19f20fa-c8a5-4c5b-90fc-97dcbc08b58b}</Project>
       <Name>JabberPoint.Domain</Name>

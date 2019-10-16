@@ -6,8 +6,8 @@ namespace JabberPoint.Domain.Content.Behaviours
 {
     public interface IContentBehaviour
     {
-         IContent Parent { get; set; }
-
+        IContent Parent { get; set; }
+        void Accept(IContentBehaviourVisitor visitor);
     }
 
 }

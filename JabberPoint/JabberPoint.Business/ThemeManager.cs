@@ -27,7 +27,7 @@ namespace JabberPoint.Business
                 if (string.Compare(filter.@for, "default", true) == 0)
                 {
                    
-                    theme.PageThemes.Add(0, SetPageTheme(filter,data.styles));
+                    theme.PageThemes.Add(-1, SetPageTheme(filter,data.styles));
                 }
                 else
                 {

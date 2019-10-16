@@ -26,14 +26,14 @@ namespace JabberPoint.Domain.Themes
         /// <summary>
         /// the collection of page themes, the key being the pages for which a different theme exists.
         /// </summary>
-        public Dictionary<int, IPageTheme> PageThemes { get;  set; } = new Dictionary<int, IPageTheme>();
+        public Dictionary<int, IPageTheme> PageThemes { get; set; } = new Dictionary<int, IPageTheme>();
 
         /// <summary>
         /// Gets the themerules for a specific page, or, if the page cannot be found, gets the 0 location item.
         /// </summary>
         /// <param name="page">the number of the page for which to retrieve the themes</param>
         /// <returns>the themerules for the pagenumber provided, or the default themerules</returns>
-        public IPageTheme this[int page] => PageThemes.FirstOrDefault(x => x.Key  == page).Value?? PageThemes[0];
+        public IPageTheme this[int page] => PageThemes.FirstOrDefault(x => x.Key  == page).Value?? PageThemes[-1];
 
         
 

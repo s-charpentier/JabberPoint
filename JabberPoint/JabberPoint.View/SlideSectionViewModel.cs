@@ -10,6 +10,8 @@ namespace JabberPoint.View
     {
         private ObservableCollection<FrameworkElement> _contentElements;
 
+        private WpfContentBehaviourManager wpfContentManager = new WpfContentBehaviourManager();
+
         public ObservableCollection<FrameworkElement> ContentElements
         {
             get
@@ -26,12 +28,14 @@ namespace JabberPoint.View
         public SlideSectionViewModel(ISlideSection slide, int index)//slide
         {
             var elements = new ObservableCollection<FrameworkElement>();
+            wpfContentManager.Index = index;
 
             foreach (var content in slide.Contents)
             {
-                foreach (var behaviourDrawer in content.Value.Behaviours.OfType<IDrawableBehaviour<FrameworkElement>>())
+                foreach (var behaviour in content.Value.Behaviours)
                 {
-                    var uiElement = behaviourDrawer.Draw(index);
+                    var uiElement = wpfContentManager.GetControl(behaviour);
+//                    var uiElement = behaviour.Draw(index);
                     if (uiElement != null)
                         elements.Add(uiElement);
                     
@@ -42,11 +46,12 @@ namespace JabberPoint.View
         }
         public SlideSectionViewModel(int currentIndex, ISlideshow slideshow)//Footer
         {
+            wpfContentManager.Index = currentIndex;
             foreach (var content in slideshow.Footer.Contents)
             {
-                foreach (var behaviourDrawer in content.Value.Behaviours.OfType<IDrawableBehaviour<FrameworkElement>>())
+                foreach (var behaviour in content.Value.Behaviours)
                 {
-                    var uiElement = behaviourDrawer.Draw(currentIndex);
+                    var uiElement = wpfContentManager.GetControl(behaviour);
                     if (uiElement != null)
                     {
                         ContentElements.Add(uiElement);

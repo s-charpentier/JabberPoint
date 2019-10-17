@@ -46,19 +46,20 @@ namespace JabberPoint.View
         }
         public SlideSectionViewModel(int currentIndex, ISlideshow slideshow)//Footer
         {
+            var elements = new ObservableCollection<FrameworkElement>();
             wpfContentManager.Index = currentIndex;
-            foreach (var content in slideshow.Footer.Contents)
+            foreach (var content in slideshow.GetFooter(currentIndex).Contents)
             {
                 foreach (var behaviour in content.Value.Behaviours)
                 {
                     var uiElement = wpfContentManager.GetControl(behaviour);
                     if (uiElement != null)
                     {
-                        ContentElements.Add(uiElement);
+                        elements.Add(uiElement);
                     }
                 }
             }
-            OnPropertyChanged("ContentElement");
+            ContentElements = elements;
         }
 
     }

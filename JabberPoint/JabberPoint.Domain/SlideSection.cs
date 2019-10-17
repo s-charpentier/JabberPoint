@@ -13,11 +13,17 @@ namespace JabberPoint.Domain
         public SlideSection(IMetadataProvider parent)
         {
             this.Contents = new SortedList<int, IContent>();
+            _parent = parent;
         }
 
         public string GetValueForKey(string key)
         {
+            //if each slidesection piece had a metadata object, an inbetween check is needed here.
             return _parent.GetValueForKey(key);
+        }
+        public string ReplaceTextWithMetaData(string text)
+        {
+           return _parent.ReplaceTextWithMetaData(text);
         }
     }
 }

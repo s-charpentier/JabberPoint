@@ -9,5 +9,6 @@ namespace JabberPoint.Domain
     public interface IMetadataProvider
     {
         string GetValueForKey(string key);
+        string ReplaceTextWithMetaData(string text);
     }
 }

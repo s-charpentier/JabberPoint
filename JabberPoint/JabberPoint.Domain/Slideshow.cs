@@ -8,11 +8,17 @@ namespace JabberPoint.Domain
     public sealed class Slideshow : ISlideshow
     {
         public List<ISlideSection> Slides { get; private set; }
+        public Dictionary<int, ISlideSection> Footers { get; set; } = new Dictionary<int, ISlideSection>();
+        public ISlideSection GetFooter(int page)
+        {
+            return Footers.ContainsKey(page) ? Footers[page] : Footers[-1];
+        }
 
-        public ISlideSection Footer { get; set; }
 
         public Dictionary<string,string> MetaData { get { return _metaData; } }
-        private static Dictionary<string, string> _metaData;
+        private  Dictionary<string, string> _metaData;
+        
+
         public Slideshow()
         {
             this.Slides = new List<ISlideSection>();
@@ -22,7 +28,7 @@ namespace JabberPoint.Domain
         {
             return _metaData[key]??"";
         }
-        public static string ReplaceTextWithMetaData(string text)
+        public string ReplaceTextWithMetaData(string text)
         {
             var output = text;
             foreach (var item in _metaData)

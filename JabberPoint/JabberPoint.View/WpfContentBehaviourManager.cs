@@ -35,7 +35,7 @@ namespace JabberPoint.View
             var style = themeManager.GetStyle(pageNr, levelBehaviour.Level);
             var control = new System.Windows.Controls.TextBlock()
             {
-                Text = Slideshow.ReplaceTextWithMetaData(behaviour.Text).Replace("[PageNr]", pageNr.ToString()),
+                Text = $"{new string(' ',levelBehaviour.Level*5)}{behaviour.Parent.ReplaceTextWithMetaData(behaviour.Text).Replace("[PageNr]", pageNr.ToString())}" ,
                 FontSize = style.FontSize,
                 FontFamily = new System.Windows.Media.FontFamily(style.Font),
                 FontStyle = style.FontStyle.HasFlag(JabberPoint.Domain.Helpers.FontStyle.Italic) ? FontStyles.Italic : FontStyles.Normal,

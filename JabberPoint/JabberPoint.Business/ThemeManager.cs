@@ -4,6 +4,7 @@ using System.Collections;
 using JabberPoint.Data;
 using JabberPoint.Domain.Themes;
 using System.Collections.Generic;
+using JabberPoint.Domain;
 
 namespace JabberPoint.Business
 {
@@ -39,16 +40,41 @@ namespace JabberPoint.Business
             }
             themes.SetList(new List<Theme>() { theme });
             themes.SetCurrentTheme (theme.Name);
+            
+        }
 
+        private static void addTheme(JabberPoint.Data.theme data, string inputUrl)
+        {
+            var theme = new JabberPoint.Domain.Themes.Theme
+            {
+                Name = inputUrl
+            };
+            foreach (var filter in data.themefilters)
+            {
+                if (string.Compare(filter.@for, "default", true) == 0)
+                {
+
+                    theme.PageThemes.Add(-1, SetPageTheme(filter, data.styles));
+                }
+                else
+                {
+                    foreach (var page in filter.@for.Split(','))
+                    {
+                        theme.PageThemes.Add(int.Parse(page), SetPageTheme(filter, data.styles));
+                    }
+                }
+            }
         }
         private static IPageTheme SetPageTheme(themeThemefilter filter, themeStyle[] themeStyles)
         {
-            var pagetheme = new PageTheme();
-            pagetheme.BackgroundImage = filter.backgroundimage.value;
-            pagetheme.BackgroundColor = filter.backgroundColor.value;
+            var pagetheme = new PageTheme
+            {
+                BackgroundImage = filter.backgroundimage.value,
+                BackgroundColor = filter.backgroundColor.value
+            };
             foreach (var level in filter.levels)
             {
-                var themeRule = new ThemeRule()
+                IThemeRule themeRule = new ThemeRule()
                 {
                     LevelId = level.level,
                     Style = SetStyle(themeStyles.First(x=>x.id== level.style)),
@@ -57,6 +83,18 @@ namespace JabberPoint.Business
                 pagetheme.ThemeRules.Add(themeRule);
 
             }
+
+            if (filter.showMeta!=null)
+            foreach (var meta in filter.showMeta)
+            {
+                IFooterData footer = new FooterData()
+                {
+                    Text = $"[{meta.name}]",
+                    Level = meta.level
+                };
+                pagetheme.FooterData.Add(footer);
+            }
+
             return pagetheme;
         }
         private static IStyle SetStyle(themeStyle themeStyle)

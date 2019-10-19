@@ -35,7 +35,7 @@ namespace JabberPoint.Domain
         {
             var output = text;
             foreach (var item in _metaData)
-                output= Regex.Replace(output, $"/[{item.Key}/]", item.Value);
+                output= Regex.Replace(output, $"(\\[{item.Key}\\])", item.Value);
             return output;
         }
     }

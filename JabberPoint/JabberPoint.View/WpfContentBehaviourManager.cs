@@ -35,7 +35,7 @@ namespace JabberPoint.View
             var style = themeManager.GetStyle(pageNr, levelBehaviour.Level);
 
             var text = $"{new string(' ', levelBehaviour.Level * 5)}";
-            text += $"{behaviour.Parent.ReplaceTextWithMetaData(behaviour.Text).Replace("[PageNr]", $"{(pageNr + 1)}/{behaviour.Parent.GetValueForKey("[PageCount]")}")}";
+            text += $"{behaviour.Parent.ReplaceTextWithMetaData(behaviour.Text).Replace("[PageNr]", $"{(pageNr + 1)}/{behaviour.Parent.GetValueForKey("PageCount")}")}";
 
             var control = new System.Windows.Controls.TextBlock()
             {

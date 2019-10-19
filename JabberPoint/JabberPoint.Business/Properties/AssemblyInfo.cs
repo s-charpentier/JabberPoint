@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("JabberPoint.Business")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("OU - Design for Change - Steven Charpentier/Sam Van Battel")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("JabberPoint.Business")]

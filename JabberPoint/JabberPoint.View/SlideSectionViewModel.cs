@@ -1,8 +1,6 @@
 ﻿using System.Collections.ObjectModel;
-using System.Linq;
 using System.Windows;
 using JabberPoint.Domain;
-using JabberPoint.Domain.Content.Behaviours;
 
 namespace JabberPoint.View
 {
@@ -35,7 +33,6 @@ namespace JabberPoint.View
                 foreach (var behaviour in content.Value.Behaviours)
                 {
                     var uiElement = wpfContentManager.GetControl(behaviour);
-//                    var uiElement = behaviour.Draw(index);
                     if (uiElement != null)
                         elements.Add(uiElement);
                     

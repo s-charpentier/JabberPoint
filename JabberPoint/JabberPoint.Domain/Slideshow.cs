@@ -5,6 +5,9 @@ using System.Text.RegularExpressions;
 
 namespace JabberPoint.Domain
 {
+    /// <summary>
+    /// a slideshow is the main object of the application. It contains slides and metadata.
+    /// </summary>
     public sealed class Slideshow : ISlideshow
     {
         public List<ISlideSection> Slides { get; private set; }

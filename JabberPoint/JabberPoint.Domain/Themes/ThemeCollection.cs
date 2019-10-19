@@ -6,15 +6,29 @@ using System.Linq;
 
 namespace JabberPoint.Domain.Themes
 {
+    /// <summary>
+    /// interface for ThemeCollection class
+    /// </summary>
     public interface IThemeCollection
     {
+        /// <summary>
+        /// the name of the ThemeCollection
+        /// </summary>
         string Name { get; }
+        /// <summary>
+        /// determines which page uses which theme
+        /// </summary>
         Dictionary<int, Theme> PageThemes{ get; }
+        /// <summary>
+        /// square bracket operator overload for retrieving the theme of a particular page
+        /// </summary>
+        /// <param name="page">the page number for which a theme should be returned</param>
+        /// <returns></returns>
         Theme this[int page] { get; }
     }
     /// <summary>
-    /// 
     /// The ThemeCollection class is the main enty poitn for all theme rules belonging to a specific theme.
+    /// A slideshow can use different themes per page, so a themecollection is loaded, containing specific themes per page.
     /// </summary>
     public class ThemeCollection
     {

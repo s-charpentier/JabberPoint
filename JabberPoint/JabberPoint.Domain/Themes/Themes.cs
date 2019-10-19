@@ -5,29 +5,20 @@ using System.Linq;
 
 namespace JabberPoint.Domain.Themes
 {
-/*    public class Themes
-    {
-        private List<ThemeCollection> _internalList { get; set; } = new List<ThemeCollection>();
-        public ThemeCollection this[string name]=>_internalList.First(x=>x.Name == name);
-    }
-}
-﻿using JabberPoint.Domain.Themes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace JabberPoint.Business
-{*/
     /// <summary>
     /// theme manager singleton. 
     /// manages the global retrieval and dissemination of theme data.
     /// </summary>
     public class Themes
     {
+        /// <summary>
+        /// List of all loaded ThemeCollections
+        /// </summary>
         private List<ThemeCollection> _internalList { get; set; } = new List<ThemeCollection>();
-
+        /// <summary>
+        /// replaces the current list of ThemeCollections
+        /// </summary>
+        /// <param name="themes"></param>
         public void SetList(IEnumerable<ThemeCollection> themes)
         {
             foreach(var theme in themes)
@@ -35,9 +26,17 @@ namespace JabberPoint.Business
            
         }
 
-        //private Themes themes;
+        /// <summary>
+        /// the currently selected theme
+        /// </summary>
         private string currentTheme;
+        /// <summary>
+        /// singleton reference
+        /// </summary>
         private static Themes _themeManager;
+        /// <summary>
+        /// private constructor for singleton pattern
+        /// </summary>
         private Themes()
         {
 

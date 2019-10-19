@@ -5,6 +5,9 @@ using JabberPoint.Domain.Content;
 
 namespace JabberPoint.Domain
 {
+    /// <summary>
+    /// A slidesection is a class containing all contents that can be displayed within a slide or footer.
+    /// </summary>
     public class SlideSection : ISlideSection
     {
         public SortedList<int, IContent> Contents { get; private set; }

@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace JabberPoint.Domain.Themes
 {
-    public interface IPageTheme
+    public interface ITheme
     {
         IStyle this[int level] { get; }
 
@@ -16,7 +16,7 @@ namespace JabberPoint.Domain.Themes
     /// <summary>
     /// The theme definition that can be grouped per individual page.
     /// </summary>
-    public class PageTheme : IPageTheme
+    public class Theme : ITheme
     {
         public string BackgroundColor { get; set; }
         public string BackgroundImage { get; set; }

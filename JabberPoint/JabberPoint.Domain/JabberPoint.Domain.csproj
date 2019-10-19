@@ -63,7 +63,7 @@
     <Compile Include="Themes\FooterData.cs" />
     <Compile Include="Themes\PageTheme.cs" />
     <Compile Include="Themes\Style.cs" />
-    <Compile Include="Themes\Theme.cs" />
+    <Compile Include="Themes\ThemeCollection.cs" />
     <Compile Include="Themes\ThemeRule.cs" />
     <Compile Include="Themes\Themes.cs" />
   </ItemGroup>

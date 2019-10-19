@@ -28,7 +28,11 @@ namespace JabberPoint.View
             InitializeComponent();
             foreach (FileInfo file in new DirectoryInfo("./").EnumerateFiles().Where(x => x.Name.StartsWith("theme")))
             {
-                var menuItem = new MenuItem() {Header = file.Name};
+                var menuItem = new MenuItem()
+                {
+                    Header = file.Name, Name= file.Name.Split('.')[0]
+
+                };
                 menuItem.SetBinding(MenuItem.CommandProperty, new Binding("LoadTheme"));
                 menuItem.CommandParameter = file.Name;
                 

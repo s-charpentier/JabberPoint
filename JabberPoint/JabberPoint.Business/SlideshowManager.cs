@@ -57,7 +57,9 @@ namespace JabberPoint.Business
                     slide.Contents.Add(slide.Contents.Count, factoryLoader(datacontent,slide));
                 }
             }
-            slideshow.MetaData["[PageCount]"] = slideshow.Slides.Count.ToString();
+
+            SetMetaData(slideshow, data.metainfos);
+          
             return slideshow;
         }
         private static IContent GetWpfContent(slideshowSlideContent contentData, ISlideSection parent)
@@ -78,6 +80,18 @@ namespace JabberPoint.Business
                     break;
             }
             return factory.GetContent(parent);
+        }
+
+        private static void SetMetaData(ISlideshow slideshow, slideshowMetainfo[] metainfo)
+        {
+            slideshow.MetaData["PageCount"] = slideshow.Slides.Count.ToString();
+
+            foreach (var meta in metainfo)
+            {
+                slideshow.MetaData[meta.key] = meta.value;
+            }
+
+            slideshow.MetaData["CurrentViewer"] = Environment.UserName;
         }
        
     }

@@ -80,4 +80,14 @@
         </Grid>
 
     </DockPanel>
+    <Window.InputBindings>
+        <KeyBinding Key="PageDown" Command="{Binding Path=NextSlide}" />
+        <KeyBinding Key="Down" Command="{Binding Path=NextSlide}" />
+        <KeyBinding Key="Enter" Command="{Binding Path=NextSlide}" />
+        <KeyBinding Key="Right" Command="{Binding Path=NextSlide}" />
+
+        <KeyBinding Key="PageUp" Command="{Binding Path=PreviousSlide}" />
+        <KeyBinding Key="Up" Command="{Binding Path=PreviousSlide}" />
+        <KeyBinding Key="Left" Command="{Binding Path=PreviousSlide}" />
+    </Window.InputBindings>
 </Window>

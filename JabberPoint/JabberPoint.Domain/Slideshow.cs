@@ -14,10 +14,8 @@ namespace JabberPoint.Domain
             return Footers.ContainsKey(page) ? Footers[page] : Footers[-1];
         }
 
-
         public Dictionary<string,string> MetaData { get { return _metaData; } }
         private  Dictionary<string, string> _metaData;
-        
 
         public Slideshow()
         {
@@ -26,7 +24,9 @@ namespace JabberPoint.Domain
         }
         public string GetValueForKey(string key)
         {
-            return _metaData[key]??"";
+            if (_metaData.ContainsKey(key))
+                return _metaData[key];
+            return "";
         }
         public string ReplaceTextWithMetaData(string text)
         {

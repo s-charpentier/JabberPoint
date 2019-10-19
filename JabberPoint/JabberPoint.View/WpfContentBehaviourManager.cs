@@ -33,9 +33,13 @@ namespace JabberPoint.View
             var themeManager = JabberPoint.Domain.Themes.Themes.GetSingleton();
             var levelBehaviour = behaviour.Parent.GetBehaviour<ILevelledBehaviour>();
             var style = themeManager.GetStyle(pageNr, levelBehaviour.Level);
+
+            var text = $"{new string(' ', levelBehaviour.Level * 5)}";
+            text += $"{behaviour.Parent.ReplaceTextWithMetaData(behaviour.Text).Replace("[PageNr]", $"{(pageNr + 1)}/{behaviour.Parent.GetValueForKey("[PageCount]")}")}";
+
             var control = new System.Windows.Controls.TextBlock()
             {
-                Text = $"{new string(' ',levelBehaviour.Level*5)}{behaviour.Parent.ReplaceTextWithMetaData(behaviour.Text).Replace("[PageNr]", pageNr.ToString())}" ,
+                Text = text,
                 FontSize = style.FontSize,
                 FontFamily = new System.Windows.Media.FontFamily(style.Font),
                 FontStyle = style.FontStyle.HasFlag(JabberPoint.Domain.Helpers.FontStyle.Italic) ? FontStyles.Italic : FontStyles.Normal,

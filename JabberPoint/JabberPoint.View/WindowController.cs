@@ -21,10 +21,8 @@ namespace JabberPoint.View
         ISlideshow Slideshow { get; set; }
         int CurrentIndex { get; set; }
         private string folder;
-        public event SetValueHandler FilePathSet;
         public event UpdateSlideHandler UpdateSlide;
         public event UpdateSlideHandler UpdateFooter;
-        public event UpdateThemeHandler UpdateTheme;
         public WindowController()
         {
             
@@ -44,18 +42,13 @@ namespace JabberPoint.View
                 this.Slideshow = SlideshowManager.LoadXmlFromFile(openFileDialog.FileName);
                 this.Slideshow.MetaData.Add("RootFolder", openFileDialog.FileName.Substring(0, openFileDialog.FileName.LastIndexOf('\\')));
                 
-                //FilePathSet?.Invoke(openFileDialog.FileName);
                 SlideshowManager.SetFooter(Slideshow);
                 this.CurrentIndex = 0;
                 SetCurrentSlide(CurrentIndex);
             }
                
         }
-
-        public void SetThemePath()
-        {
-            
-        }
+        
 
         public void LoadTheme(string name)
         {
@@ -63,7 +56,6 @@ namespace JabberPoint.View
             ThemeManager.ThemeLoader(name);
 
             SlideshowManager.SetFooter(Slideshow);
-            //Slideshow.Footer= 
             SetCurrentSlide(CurrentIndex);
         }
         public void SetCurrentSlide(int slideNumber)

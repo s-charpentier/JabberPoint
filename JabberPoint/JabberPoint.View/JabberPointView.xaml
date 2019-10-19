@@ -13,7 +13,7 @@
     <DockPanel Margin="0,0,0,0">
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_File">
-                <MenuItem Header="_Open" />
+                <MenuItem Header="_Open" Command="{Binding SetFilePath}" />
                 <Separator />
                 <MenuItem Header="_Exit" />
             </MenuItem>
@@ -21,12 +21,7 @@
                 <MenuItem Header="_Next" Command="{Binding Path=NextSlide}"/>
                 <MenuItem Header="_Prev" Command="{Binding Path=PreviousSlide}"/>
                 <Separator />
-                <MenuItem Name="themeFolder" Header="_Set ThemeCollection Folder"/>
                 <MenuItem Name="themes" Header="_ThemeCollections"/>
-            </MenuItem>
-            <MenuItem Header="_Help">
-                <MenuItem Header="_About" Command="{Binding Path=ShowAboutPage}"/>
-
             </MenuItem>
         </Menu>
 

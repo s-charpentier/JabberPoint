@@ -56,6 +56,10 @@ namespace JabberPoint.View
         public ICommand LoadTheme
             => _loadTheme ?? (_loadTheme = new RelayCommand<string>(x => _controller?.LoadTheme(x)));
 
+        private ICommand _setFilePath;
+        public ICommand SetFilePath
+            => _setFilePath ?? (_setFilePath = new RelayCommand(() => _controller?.SetFilePath()));
+
         private ICommand _showAboutPage;
         public ICommand ShowAboutPage
             => _showAboutPage ?? (_loadTheme = new RelayCommand(() => MessageBox.Show("JabberPoint\r\n  Steven Charpentier\r\n  Sam Van Battel\r\n\r\n  Open University Assignment 2019-2020")));

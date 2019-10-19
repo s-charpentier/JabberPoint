@@ -7,8 +7,8 @@ namespace JabberPoint.Domain.Themes
 {
 /*    public class Themes
     {
-        private List<Theme> _internalList { get; set; } = new List<Theme>();
-        public Theme this[string name]=>_internalList.First(x=>x.Name == name);
+        private List<ThemeCollection> _internalList { get; set; } = new List<ThemeCollection>();
+        public ThemeCollection this[string name]=>_internalList.First(x=>x.Name == name);
     }
 }
 ﻿using JabberPoint.Domain.Themes;
@@ -26,9 +26,9 @@ namespace JabberPoint.Business
     /// </summary>
     public class Themes
     {
-        private List<Theme> _internalList { get; set; } = new List<Theme>();
+        private List<ThemeCollection> _internalList { get; set; } = new List<ThemeCollection>();
 
-        public void SetList(IEnumerable<Theme> themes)
+        public void SetList(IEnumerable<ThemeCollection> themes)
         {
             foreach(var theme in themes)
                 if(_internalList.All(x => x.Name != theme.Name)) _internalList.Add(theme);
@@ -58,7 +58,7 @@ namespace JabberPoint.Business
         /// </summary>
         /// <param name="name">the theme name</param>
         /// <returns></returns>
-        public Theme this[string name]=>_internalList.First(x=>x.Name == name);
+        public ThemeCollection this[string name]=>_internalList.First(x=>x.Name == name);
 
 
         /// <summary>

@@ -21,8 +21,8 @@
                 <MenuItem Header="_Next" Command="{Binding Path=NextSlide}"/>
                 <MenuItem Header="_Prev" Command="{Binding Path=PreviousSlide}"/>
                 <Separator />
-                <MenuItem Name="themeFolder" Header="_Set Theme Folder"/>
-                <MenuItem Name="themes" Header="_Themes"/>
+                <MenuItem Name="themeFolder" Header="_Set ThemeCollection Folder"/>
+                <MenuItem Name="themes" Header="_ThemeCollections"/>
             </MenuItem>
             <MenuItem Header="_Help">
                 <MenuItem Header="_About" Command="{Binding Path=ShowAboutPage}"/>

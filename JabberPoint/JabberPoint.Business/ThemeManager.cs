@@ -20,7 +20,7 @@ namespace JabberPoint.Business
             data = loader.RootObject;
 
             var themes = Themes.GetSingleton();
-            var theme = new JabberPoint.Domain.Themes.Theme();
+            var theme = new JabberPoint.Domain.Themes.ThemeCollection();
             theme.Name = inputUrl;
             foreach (var filter in data.themefilters)
             {
@@ -37,13 +37,13 @@ namespace JabberPoint.Business
                     }
                 }
             }
-            themes.SetList(new List<Theme>() { theme });
+            themes.SetList(new List<ThemeCollection>() { theme });
             themes.SetCurrentTheme (theme.Name);
 
         }
-        private static IPageTheme SetPageTheme(themeThemefilter filter, themeStyle[] themeStyles)
+        private static ITheme SetPageTheme(themeThemefilter filter, themeStyle[] themeStyles)
         {
-            var pagetheme = new PageTheme();
+            var pagetheme = new Theme();
             pagetheme.BackgroundImage = filter.backgroundimage.value;
             pagetheme.BackgroundColor = filter.backgroundColor.value;
             foreach (var level in filter.levels)

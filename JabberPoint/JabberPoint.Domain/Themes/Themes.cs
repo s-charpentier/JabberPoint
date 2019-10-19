@@ -26,8 +26,8 @@ namespace JabberPoint.Business
     /// </summary>
     public class Themes
     {
-        private List<Theme> _internalList { get; set; } = new List<Theme>();
-        public void SetList(IEnumerable<Theme> themes)
+        private List<ThemeCollection> _internalList { get; set; } = new List<ThemeCollection>();
+        public void SetList(IEnumerable<ThemeCollection> themes)
             => _internalList.AddRange(themes);
         //private Themes themes;
         private string currentTheme;
@@ -52,7 +52,7 @@ namespace JabberPoint.Business
         /// </summary>
         /// <param name="name">the theme name</param>
         /// <returns></returns>
-        public Theme this[string name]=>_internalList.First(x=>x.Name == name);
+        public ThemeCollection this[string name]=>_internalList.First(x=>x.Name == name);
 
 
         /// <summary>

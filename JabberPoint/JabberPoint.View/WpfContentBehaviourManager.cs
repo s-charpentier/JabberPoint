@@ -46,7 +46,9 @@ namespace JabberPoint.View
         }
         public void Convert(MediaBehaviour behaviour)
         {
-            var bitmap = new BitmapImage(new Uri(behaviour.Reference, UriKind.Relative));
+            var bitmap =string.IsNullOrWhiteSpace( behaviour.Parent.GetValueForKey("RootFolder"))? new BitmapImage(new Uri(behaviour.Reference, UriKind.Relative))
+                : new BitmapImage(new Uri($"{behaviour.Parent.GetValueForKey("RootFolder")}\\{behaviour.Reference}"));
+            //var bitmap = new BitmapImage(new Uri(behaviour.Reference, UriKind.Relative));
             var control = new System.Windows.Controls.Image() { Source = bitmap, Height = bitmap.Height };
             this.Control = control;
         }

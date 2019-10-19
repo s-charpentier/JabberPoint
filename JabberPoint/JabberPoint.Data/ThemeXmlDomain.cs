@@ -317,6 +317,7 @@ namespace JabberPoint.Data
         private themeThemefilterBackgroundColor backgroundColorField;
 
         private themeThemefilterLevel[] levelsField;
+        private themeThemefilterShowMetametaInformation[] showMetaField;
 
         private string forField;
 
@@ -338,6 +339,14 @@ namespace JabberPoint.Data
         {
             get { return this.levelsField; }
             set { this.levelsField = value; }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("metaInformation", IsNullable = false)]
+        public themeThemefilterShowMetametaInformation[] showMeta
+        {
+            get { return this.showMetaField; }
+            set { this.showMetaField = value; }
         }
 
         /// <remarks/>
@@ -366,6 +375,33 @@ namespace JabberPoint.Data
         {
             get { return this.valueField; }
             set { this.valueField = value; }
+        }
+    }
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.8.3928.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+    public partial class themeThemefilterShowMetametaInformation
+    {
+
+        private string nameField;
+        private int levelField;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string name
+        {
+            get { return this.nameField; }
+            set { this.nameField = value; }
+        }
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public int level
+        {
+            get { return this.levelField; }
+            set { this.levelField = value; }
         }
     }
     /// <remarks/>

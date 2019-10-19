@@ -7,7 +7,7 @@ namespace JabberPoint.Domain
     public interface ISlideshow:IMetadataProvider
     {
         List<ISlideSection> Slides { get; }
-        ISlideSection Footer { get; set; }
-        Dictionary<string,string> MetaData { get; }
+        Dictionary<int,ISlideSection> Footers { get; }
+        ISlideSection GetFooter(int page);
     }
 }

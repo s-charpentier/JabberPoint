@@ -2,10 +2,12 @@
 using JabberPoint.Domain;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using JabberPoint.Domain.Themes;
+using Microsoft.Win32;
 
 namespace JabberPoint.View
 {
@@ -13,26 +15,41 @@ namespace JabberPoint.View
     {
         public delegate void UpdateSlideHandler(ISlideSection slide, int currentIndex);
 
+        public delegate void SetValueHandler(string value);
+
         public delegate void UpdateThemeHandler(ISlideSection footer, string background, string image);
         ISlideshow Slideshow { get; set; }
         int CurrentIndex { get; set; }
+
+        public event SetValueHandler FilePathSet;
         public event UpdateSlideHandler UpdateSlide;
+        public event UpdateSlideHandler UpdateFooter;
         public event UpdateThemeHandler UpdateTheme;
         public WindowController()
         {
-            this.Slideshow = SlideshowManager.LoadDefaultXml();
+            
             ThemeManager.ThemeLoader();
 
+            this.Slideshow = SlideshowManager.LoadDefaultXml();
+            SlideshowManager.SetFooter(Slideshow);
             this.CurrentIndex = 0;
         }
 
+        public void SetFilePath()
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == true)
+                FilePathSet?.Invoke(openFileDialog.FileName);
+        }
+
+
         public void LoadTheme(string name)
         {
+
             ThemeManager.ThemeLoader(name);
 
-            
-            
-            
+            SlideshowManager.SetFooter(Slideshow);
+            //Slideshow.Footer= 
             SetCurrentSlide(CurrentIndex);
         }
         public void SetCurrentSlide(int slideNumber)
@@ -45,7 +62,9 @@ namespace JabberPoint.View
             }
             CurrentIndex = slideNumber;
             ISlideSection currentSlide = this.Slideshow.Slides[this.CurrentIndex];
+            ISlideSection currentFooter = this.Slideshow.GetFooter(this.CurrentIndex);
             UpdateSlide?.Invoke(currentSlide, CurrentIndex);
+            UpdateFooter?.Invoke(currentFooter, CurrentIndex);
 
         }
         public void FirstSlide()

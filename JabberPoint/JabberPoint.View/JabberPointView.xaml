@@ -14,21 +14,18 @@
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_File">
                 <MenuItem Header="_Open" />
-                <MenuItem Header="_New" />
-                <MenuItem Header="_Save" />
                 <Separator />
                 <MenuItem Header="_Exit" />
             </MenuItem>
             <MenuItem Header="_View">
                 <MenuItem Header="_Next" Command="{Binding Path=NextSlide}"/>
                 <MenuItem Header="_Prev" Command="{Binding Path=PreviousSlide}"/>
-                <MenuItem Header="_Go To" />
                 <Separator />
-                <MenuItem Name="themes" Header="_Themes">
-                </MenuItem>
+                <MenuItem Name="themeFolder" Header="_Set Theme Folder"/>
+                <MenuItem Name="themes" Header="_Themes"/>
             </MenuItem>
             <MenuItem Header="_Help">
-                <MenuItem Header="_About" />
+                <MenuItem Header="_About" Command="{Binding Path=ShowAboutPage}"/>
 
             </MenuItem>
         </Menu>
@@ -41,7 +38,19 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <ItemsControl x:Name="SlideshowArea" ItemsSource="{Binding Path=CurrentSlideVM.ContentElements }" Grid.Row="0"/>
-                <ItemsControl x:Name="FooterArea" ItemsSource="{Binding Path=CurrentThemeFooterVM.ContentElements }"  Grid.Row="1"/>
+                <ItemsControl x:Name="FooterArea" ItemsSource="{Binding Path=CurrentThemeFooterVM.ContentElements }"  Grid.Row="1">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"  FlowDirection="RightToLeft">
+                                <StackPanel.Resources>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="Margin" Value="10,0,100,10"/>
+                                    </Style>
+                                </StackPanel.Resources>
+                            </StackPanel>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
             </Grid>
 
             <Grid VerticalAlignment="Bottom" HorizontalAlignment="Left" Panel.ZIndex="3">

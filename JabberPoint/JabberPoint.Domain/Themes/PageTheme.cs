@@ -10,6 +10,7 @@ namespace JabberPoint.Domain.Themes
         string BackgroundColor { get; }
         string BackgroundImage { get; }
         List<IThemeRule> ThemeRules { get; }
+        List<IFooterData> FooterData { get; }
     }
 
     /// <summary>
@@ -20,7 +21,7 @@ namespace JabberPoint.Domain.Themes
         public string BackgroundColor { get; set; }
         public string BackgroundImage { get; set; }
         public List<IThemeRule> ThemeRules { get; set; } = new List<IThemeRule>();
-
+        public List<IFooterData> FooterData { get; set; } = new List<IFooterData>();
 
 
         public IStyle this[int level] => ThemeRules.First(x => x.LevelId == level).Style;

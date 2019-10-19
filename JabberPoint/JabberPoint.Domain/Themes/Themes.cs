@@ -27,8 +27,14 @@ namespace JabberPoint.Business
     public class Themes
     {
         private List<Theme> _internalList { get; set; } = new List<Theme>();
+
         public void SetList(IEnumerable<Theme> themes)
-            => _internalList.AddRange(themes);
+        {
+            foreach(var theme in themes)
+                if(_internalList.All(x => x.Name != theme.Name)) _internalList.Add(theme);
+           
+        }
+
         //private Themes themes;
         private string currentTheme;
         private static Themes _themeManager;
@@ -115,6 +121,7 @@ namespace JabberPoint.Business
         public string GetBackgroundColor(int PageNr)
             => GetBackgroundColor(currentTheme, PageNr);
 
-
+        public Dictionary<int,List<IFooterData>> GetFooterData()
+            =>this[currentTheme].PageThemes.ToDictionary(x => x.Key, x => x.Value.FooterData);
     }
 }

@@ -66,9 +66,9 @@
     <themefilter for="default">
       <backgroundColor value="#FFFFFF" />
       <showMeta>
-        <metaInformation name="pageNumber" style="0" />
-        <metaInformation name="pageNumber" style="0" />
-        <metaInformation name="pageNumber" style="0" />
+        <metaInformation name="PageNr" style="0" />
+        <metaInformation name="PageNr" style="0" />
+        <metaInformation name="PageNr" style="0" />
       </showMeta>
       <backgroundimage value="" />
       <levels>
@@ -83,9 +83,9 @@
     <themefilter for="0">
       <backgroundColor value="#FFFF00" />
       <showMeta>
-        <metaInformation name="pageNumber" style="0" />
-        <metaInformation name="pageNumber" style="0" />
-        <metaInformation name="pageNumber" style="0" />
+        <metaInformation name="PageNr" style="0" />
+        <metaInformation name="PageNr" style="0" />
+        <metaInformation name="PageNr" style="0" />
       </showMeta>
       <backgroundimage value="" />
       <levels>

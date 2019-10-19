@@ -21,6 +21,28 @@ namespace JabberPoint.View
    
     public class PresentationViewModel : ViewModel
     {
+
+        private string _filePath;
+        public string FilePath
+        {
+            get { return _filePath; }
+            set
+            {
+                _filePath = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _fileName;
+        public string FileName
+        {
+            get { return _fileName; }
+            set
+            {
+                _fileName = value;
+                OnPropertyChanged();
+            }
+        }
         private WindowController _controller;
         private ICommand _nextSlide;
         public ICommand NextSlide
@@ -33,6 +55,10 @@ namespace JabberPoint.View
         private ICommand _loadTheme;
         public ICommand LoadTheme
             => _loadTheme ?? (_loadTheme = new RelayCommand<string>(x => _controller?.LoadTheme(x)));
+
+        private ICommand _showAboutPage;
+        public ICommand ShowAboutPage
+            => _showAboutPage ?? (_loadTheme = new RelayCommand(() => MessageBox.Show("JabberPoint\r\n  Steven Charpentier\r\n  Sam Van Battel\r\n\r\n  Open University Assignment 2019-2020")));
 
         private Brush _backGround = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#005566"));
         public Brush BackgroundColor
@@ -83,12 +109,27 @@ namespace JabberPoint.View
                 OnPropertyChanged();
             }
         }
-        public SlideSectionViewModel CurrentThemeFooterVM { get; set; }
+
+        private SlideSectionViewModel _CurrentThemeFooterVM;
+        public SlideSectionViewModel CurrentThemeFooterVM
+        {
+            get
+            {
+                return _CurrentThemeFooterVM;
+            }
+            set
+            {
+                _CurrentThemeFooterVM = value;
+                OnPropertyChanged();
+            }
+        }
+      
 
         public PresentationViewModel(WindowController controller)
         {
             _controller = controller;
             _controller.UpdateSlide += UpdateSlide;
+            _controller.UpdateFooter += UpdateFooter;
 
 
             _controller?.FirstSlide();
@@ -99,10 +140,9 @@ namespace JabberPoint.View
             var themes = Themes.GetSingleton();
             var used = !string.IsNullOrWhiteSpace(themes.GetBackgroundImage(currentIndex));
             BackGroundUsed = used;
-            //BackgroundImage = new BitmapImage(new Uri(themes.GetBackgroundImage(currentIndex), UriKind.Relative)); 
+
             if (used)
             {
-                
                 BackgroundImage = AppDomain.CurrentDomain.BaseDirectory+"\\" + themes.GetBackgroundImage(currentIndex);
             }
           
@@ -111,8 +151,13 @@ namespace JabberPoint.View
 
             CurrentSlideVM = new SlideSectionViewModel(slide,currentIndex);
             
+
         }
 
+        public void UpdateFooter(ISlideSection slide, int currentIndex)
+        {
+            CurrentThemeFooterVM = new SlideSectionViewModel(slide, currentIndex);
+        }
 
 
 

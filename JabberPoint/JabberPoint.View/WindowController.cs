@@ -35,7 +35,11 @@ namespace JabberPoint.View
 
         public void SetFilePath()
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                DefaultExt = "*.xml",
+                Filter = "Slideshow (.xml)|*.xml"
+            };
             if (openFileDialog.ShowDialog() == true)
             {
                

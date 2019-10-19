@@ -21,28 +21,7 @@ namespace JabberPoint.View
    
     public class PresentationViewModel : ViewModel
     {
-
-        private string _filePath;
-        public string FilePath
-        {
-            get { return _filePath; }
-            set
-            {
-                _filePath = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private string _fileName;
-        public string FileName
-        {
-            get { return _fileName; }
-            set
-            {
-                _fileName = value;
-                OnPropertyChanged();
-            }
-        }
+        
         private WindowController _controller;
         private ICommand _nextSlide;
         public ICommand NextSlide
@@ -60,9 +39,9 @@ namespace JabberPoint.View
         public ICommand SetFilePath
             => _setFilePath ?? (_setFilePath = new RelayCommand(() => _controller?.SetFilePath()));
 
-        private ICommand _showAboutPage;
-        public ICommand ShowAboutPage
-            => _showAboutPage ?? (_loadTheme = new RelayCommand(() => MessageBox.Show("JabberPoint\r\n  Steven Charpentier\r\n  Sam Van Battel\r\n\r\n  Open University Assignment 2019-2020")));
+        private ICommand _exit;
+        public ICommand Exit
+            => _exit ?? (_loadTheme = new RelayCommand(() => _controller?.Exit()));
 
         private Brush _backGround = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#005566"));
         public Brush BackgroundColor
